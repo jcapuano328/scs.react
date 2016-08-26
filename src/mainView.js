@@ -32,7 +32,7 @@ var MainView = React.createClass({
         //new Promise((a,r)=> a())
         .then((data) => {
             if (data) {
-                this.state.routes.item.data = Items.get(data.id);
+                this.state.routes.item.data = Items.get(data.item);
                 this.refs.navigator.resetTo(this.state.routes.item);
             } else {
                 log.debug('mainView: no current item');
@@ -82,7 +82,7 @@ var MainView = React.createClass({
         }
     },
     onReset() {
-        log.debug('reset');
+        //log.debug('reset');
         this.eventEmitter.emit('menureset');
     },
     onAbout() {
@@ -90,7 +90,7 @@ var MainView = React.createClass({
     },
     renderScene(route, navigator) {
         route = route || {};
-        log.debug('render scene ' + route.name);
+        //log.debug('render scene ' + route.name);
         if (route.name == 'landing') {
             return (
                 <LandingView events={this.eventEmitter} />
@@ -100,9 +100,6 @@ var MainView = React.createClass({
         if (route.name == 'item') {
             this.state.routes.item.title = route.data.name;
             this.state.routes.item.subtitle = route.data.desc;
-            console.log('>>>>>>>');
-            console.log(route.data);
-            console.log('<<<<<<<');
             return (
                 <ItemView item={route.data} events={this.eventEmitter} />
             );

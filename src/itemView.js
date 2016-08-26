@@ -9,7 +9,6 @@ var Current = require('./services/current');
 var ItemView = React.createClass({
     getInitialState() {
         return {
-            item: this.props.item,
             initialPage: 0
         };
     },
@@ -37,10 +36,9 @@ var ItemView = React.createClass({
                     onChangeTab={this.onChangeTab}
                     initialPage={this.state.initialPage}
                 >
-                    <Text tabLabel="Tab 1" events={this.props.events} />
-                    <Text tabLabel="Tab 2" events={this.props.events} />
-                    <Text tabLabel="Tab 3" events={this.props.events} />
-                    <Text tabLabel="Tab 4" events={this.props.events} />
+                    <Text tabLabel="Barrage" events={this.props.events} />
+                    <Text tabLabel="Combat" events={this.props.events} />
+                    <Text tabLabel="Victory" events={this.props.events} />
                 </ScrollableTabView>
             </View>
         );

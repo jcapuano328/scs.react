@@ -10,16 +10,16 @@ var blank = require('./current.json');
 module.exports = {
 	load() {
 		// read the file
-		log.debug('Load current from ' + PATH);
+		//log.debug('Load current from ' + PATH);
 		return RNFS.readFile(PATH)
 		.then((data) => {
 			if (data) {
-				log.debug('Current retrieved');
+				//log.debug('Current retrieved');
 				let current = JSON.parse(data);
-				log.debug(current);
+				//log.debug(current);
 				return current;
 			}
-			log.debug('No Current item');
+			//log.debug('No Current item');
 			return null;
 		})
 		.catch((err) => {
@@ -29,8 +29,8 @@ module.exports = {
 	},
 	save(current) {
 		// write the file
-		log.debug('Save Current to ' + PATH);
-		log.debug(current);
+		//log.debug('Save Current to ' + PATH);
+		//log.debug(current);
 		return RNFS.writeFile(PATH, JSON.stringify(current))
 		.then((success) => {
 			log.debug('Current saved');
@@ -40,11 +40,11 @@ module.exports = {
 		});
 	},
 	remove() {
-		log.debug('Remove Current from ' + PATH)
+		//log.debug('Remove Current from ' + PATH)
 		return RNFS.unlink(PATH)
 		.then((result) => {
 	    	let success = result[0], path = result[1];
-			log.debug('FILE DELETED', success, path);
+			//log.debug('FILE DELETED', success, path);
 		})
 		// `unlink` will throw an error, if the item to unlink does not exist
 		.catch((err) => {
@@ -52,6 +52,7 @@ module.exports = {
 		});
 	},
 	reset(data) {
+		blank.item = data.id;
 		return this.save(blank)
 		.then(() => {
 			return blank;

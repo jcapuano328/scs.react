@@ -15,7 +15,7 @@ module.exports = {
 	"4": require('./4.png'),
 	"5": require('./5.png'),
 
-	"refreshButton": require('./ic_action_refresh-light.png'),
+	"refreshButton": require('./refresh-dark.png'),
 	"prevButton":	require('./ic_action_previous_item.png'),
 	"nextButton": require('./ic_action_next_item.png'),
 

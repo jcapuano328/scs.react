@@ -49,6 +49,7 @@ var AboutView = React.createClass({
                 borderColor: 'black',
                 borderWidth: 5,
                 margin: 50,
+                marginTop: 75,
                 paddingLeft: 25,
                 paddingRight: 25,
                 paddingBottom: 25,
@@ -57,23 +58,22 @@ var AboutView = React.createClass({
                 <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                     <Image style={{width: 96,height: 96,resizeMode: 'stretch'}} source={Icons.logo}/>
                     <View style={{flex:1}}>
-                        <Text style={{fontSize: 18,fontWeight: 'bold',marginLeft: 15}}>{'About La Bataille Assistant'}</Text>
-                        <Text style={{fontSize: 14,marginLeft: 15}}>{'Version: 2.0.0'}</Text>
-                        <Text style={{fontSize: 14,marginLeft: 15}}>{'Release: April 21, 2016'}</Text>
+                        <Text style={{fontSize: 18,fontWeight: 'bold',marginLeft: 15}}>{'About SCS Assistant'}</Text>
+                        <Text style={{fontSize: 14,marginLeft: 15}}>{'Version: 1.0.0'}</Text>
+                        <Text style={{fontSize: 14,marginLeft: 15}}>{'Release: August 31, 2016'}</Text>
                     </View>
                 </View>
                 <View style={{flex: .75}}>
-                    <Text style={{fontSize: 18}}>{'A no frills assistant for the La Bataille conglomeration of wargames.'}</Text>
+                    <Text style={{fontSize: 18}}>{'A no frills assistant for the Standard Combat Series conglomeration of wargames.'}</Text>
                 </View>
                 <View style={{flex: 1}}>
                     <Text style={{fontSize: 18}}>{'All glory to them that made it possible!'}</Text>
-                    <OpenURLButton label={'Marshal Enterprises'} url={'http://www.labataille.me/Home_Page.php'}/>
-                    <OpenURLButton label={'Clash of Arms'} url={'http://www.clashofarms.com/'}/>
+                    <OpenURLButton label={'MultiMan Publishing'} url={'http://www.multimanpublishing.com/'}/>
                 </View>
                 <View style={{flex: 1}}>
                     <Text style={{fontSize: 18}}>{'And of course check out the discussions and extras'}</Text>
-                    <OpenURLButton label={'ConsimWorld Forum'} url={'http://talk.consimworld.com/WebX?13@@.ee6c73b/31887'}/>
-                    <OpenURLButton label={'La Bataille Extras'} url={'http://labataille.us/'}/>
+                    <OpenURLButton label={'ConsimWorld Forum'} url={'http://talk.consimworld.com/WebX/.ee6b46d/19422'}/>
+                    <OpenURLButton label={'The Gamers Archive'} url={'http://www.gamersarchive.net/theGamers/archive/scs.htm'}/>
                 </View>
                 <View style={{flex: 1}}>
                     <Text style={{fontSize: 14}}>{'Built with React Native and these helpful modules:'}</Text>
