@@ -2,6 +2,7 @@
 
 module.exports = {
     modifier(m,c) {
+        m = m || {};
         return {
             type: m.type,
             value: m.value,
