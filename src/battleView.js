@@ -4,9 +4,10 @@ var React = require('react');
 import { View, Text } from 'react-native';
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 var TurnView = require('./turnView');
+var BarrageView = require('./barrageView');
 var Current = require('./services/current');
 
-var ItemView = React.createClass({
+var BattleView = React.createClass({
     getInitialState() {
         return {
             initialPage: 0
@@ -19,7 +20,7 @@ var ItemView = React.createClass({
         return true;
     },
     onReset() {
-        Current.reset(this.props.item)
+        Current.reset(Current.battle())
         .then((current) => {
             this.props.events.emit('reset');
         })
@@ -30,13 +31,13 @@ var ItemView = React.createClass({
     render() {
         return (
             <View style={{flex: 1,backgroundColor: 'rgba(0,0,0,0.01)'}}>
-                <TurnView item={this.props.item} events={this.props.events} />
+                <TurnView events={this.props.events} />
                 <ScrollableTabView
                     style={{backgroundColor: '#fff'}}
                     onChangeTab={this.onChangeTab}
                     initialPage={this.state.initialPage}
                 >
-                    <Text tabLabel="Barrage" events={this.props.events} />
+                    <BarrageView tabLabel="Barrage" events={this.props.events} />
                     <Text tabLabel="Combat" events={this.props.events} />
                     <Text tabLabel="Victory" events={this.props.events} />
                 </ScrollableTabView>
@@ -45,4 +46,4 @@ var ItemView = React.createClass({
     }
 });
 
-module.exports = ItemView;
+module.exports = BattleView;

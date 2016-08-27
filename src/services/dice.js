@@ -112,5 +112,24 @@ function Dice(opts) {
 
 module.exports = {
 	Die: Die,
-	Dice: Dice
+	Dice: Dice,
+	dieColor(i) {
+		switch(i) {
+		case 1:
+			return 'red';
+		case 2:
+			return 'white';
+		case 3:
+			return 'blackr';
+		case 4:
+			return 'blackw';
+		case 5:
+			return 'yellow';
+		case 6:
+			return 'blue';
+		case 7:
+			return 'green';
+		}
+		return 'white';
+	}
 };

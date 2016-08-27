@@ -963,7 +963,7 @@
 	                    }
 	                ]
 	            }
-                
+
 	        ],
 	        "modifiers": [
 	            {
@@ -981,7 +981,7 @@
 	                "type": "shift",
 	                "value": 1
 	            }
-                
+
 	        ]
 	    },
 	    "barrageTable": {
@@ -2034,7 +2034,7 @@
 	        "modifiers": []
 	    }
 	},
-    
+
 	{
 	    "id": 2,
 	    "name": "Ardennes",
@@ -2279,7 +2279,7 @@
 	                        "hi": 61,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 62,
 	                        "hi": 64,
@@ -2292,7 +2292,7 @@
 	                    }
 	                ]
 	            },
-            
+
 	            {
 	                "odds": -4,
 	                "results": [
@@ -2321,7 +2321,7 @@
 	                        "hi": 56,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 61,
 	                        "hi": 62,
@@ -2372,7 +2372,7 @@
 	                        "hi": 54,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 55,
 	                        "hi": 56,
@@ -2423,7 +2423,7 @@
 	                        "hi": 46,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 51,
 	                        "hi": 55,
@@ -2474,7 +2474,7 @@
 	                        "hi": 43,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 44,
 	                        "hi": 53,
@@ -2525,7 +2525,7 @@
 	                        "hi": 41,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 42,
 	                        "hi": 51,
@@ -2571,7 +2571,7 @@
 	                        "hi": 35,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 36,
 	                        "hi": 45,
@@ -2617,7 +2617,7 @@
 	                        "hi": 32,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 33,
 	                        "hi": 42,
@@ -2663,7 +2663,7 @@
 	                        "hi": 25,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 26,
 	                        "hi": 35,
@@ -2709,7 +2709,7 @@
 	                        "hi": 22,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 23,
 	                        "hi": 32,
@@ -2755,7 +2755,7 @@
 	                        "hi": 16,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 21,
 	                        "hi": 24,
@@ -2801,7 +2801,7 @@
 	                        "hi": 16,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 21,
 	                        "hi": 24,
@@ -2847,7 +2847,7 @@
 	                        "hi": 14,
 	                        "result": "A1D1"
 	                    },
-                        
+
 	                    {
 	                        "lo": 15,
 	                        "hi": 22,
@@ -4063,29 +4063,6 @@
 	        "Axis: DG Marker Removal"
 	    ],
 	    "terrains": [
-	        {
-	            "name": "",
-	            "barrage": {
-	                "attackmod": {
-	                	"type": "",
-	                    "value": 0
-	                },
-	                "defendmod": {
-	                	"type": "",
-	                    "value": 0
-	                }
-	            },
-	            "combat": {
-	                "attackmod": {
-	                	"type": "",
-	                    "value": 0
-	                },
-	                "defendmod": {
-	                	"type": "",
-	                    "value": 0
-	                }
-	            }
-	        },
 	        {
 	            "name": "Open",
 	            "barrage": {
@@ -5721,7 +5698,7 @@
         "custom": {
         	"class": "DopFragment",
         	"image": "dop"
-		},            
+		},
 	    "players": [
 	        "German",
 	        "Allied"
@@ -5734,7 +5711,7 @@
 	        "Aug 20-23 1914",
 	        "Aug 24-27 1914",
 	        "Aug 28-31 1914",
-	        
+
 	        "Sep 1-4 1914",
 	        "Sep 5-8 1914",
 	        "Sep 9-12 1914",
@@ -5742,7 +5719,7 @@
 	        "Sep 17-20 1914",
 	        "Sep 21-24 1914",
 	        "Sep 25-28 1914",
-	        
+
 	        "Sep 29-Oct 2 1914",
 	        "Oct 3-6 1914",
 	        "Oct 7-10 1914",
@@ -5752,7 +5729,7 @@
 	        "Oct 23-26 1914",
 	        "Oct 27-30 1914",
 	        "Oct 31-Nov 3 1914",
-	        
+
 	        "Nov 4-7 1914",
 	        "Nov 8-11 1914"
 	    ],
@@ -5766,7 +5743,7 @@
 	        "German: Breakthrough",
 	        "German: Exploitation",
 	        "German: Supply",
-	    
+
 	        "Allied: Reinforcements",
 	        "Allied: Reconstitution",
 	        "Allied: Reserves",
@@ -6531,7 +6508,7 @@
 	        ]
 	    }
 	},
-    
+
 	{
 	    "id": 5,
 	    "name": "Fallschirmjaeger",
@@ -6541,7 +6518,7 @@
 	    "players": [
 	        "German",
 	        "Dutch"
-            
+
 	    ],
 	    "turns": [
 	        "0430 10 May",
@@ -9332,8 +9309,8 @@
 	        "modifiers": []
 	    }
 	},
-    
-    
+
+
 	{
 	    "id": 10,
 	    "name": "Heights of Courage",
@@ -9589,7 +9566,7 @@
 	                }
 	            }
 	        }
-            
+
 	    ],
 	    "combatTable": {
 	        "dice": {

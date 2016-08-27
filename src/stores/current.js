@@ -14,7 +14,7 @@ module.exports = {
 		return RNFS.readFile(PATH)
 		.then((data) => {
 			if (data) {
-				//log.debug('Current retrieved');
+				log.debug('Current retrieved');
 				let current = JSON.parse(data);
 				//log.debug(current);
 				return current;
@@ -52,7 +52,7 @@ module.exports = {
 		});
 	},
 	reset(data) {
-		blank.item = data.id;
+		blank.battle = data.id;
 		return this.save(blank)
 		.then(() => {
 			return blank;

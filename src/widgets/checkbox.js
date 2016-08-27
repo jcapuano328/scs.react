@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { View, TouchableOpacity, Text, Image } from 'react-native';
-var Icons = require('../res/icons');
+var Icons = require('./icons');
 
 var Checkbox = React.createClass({
     onSelected() {
@@ -24,7 +24,11 @@ var Checkbox = React.createClass({
         );
     },
     renderLabel(label) {
-        return (<Text style={{fontSize: 22, textAlign: 'left'}}>{label}</Text>)
+        return (
+            <View style={{flex: 1, flexWrap: 'wrap'}}>
+            <Text style={{fontSize: 22, textAlign: 'left'}}>{label}</Text>
+            </View>
+        );
     }
 });
 

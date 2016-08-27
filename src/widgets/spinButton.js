@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { TouchableOpacity, Image, StyleSheet } from 'react-native';
-var Icons = require('../res/icons');
+var Icons = require('./icons');
 
 var styles = StyleSheet.create({
   prevButton: {

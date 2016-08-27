@@ -10,8 +10,8 @@ import { MenuContext } from 'react-native-menu';
 var EventEmitter = require('EventEmitter');
 var LandingView = require('./landingView');
 var AboutView = require('./aboutView');
-var ItemView = require('./itemView');
-var Items = require('./services/items');
+var BattleView = require('./battleView');
+var Battles = require('./services/battles');
 var Current = require('./services/current');
 var log = require('./services/log');
 
@@ -21,7 +21,7 @@ var MainView = React.createClass({
             drawer: false,
             routes: {
                 landing: {index: 0, name: 'landing', onMenu: this.navMenuHandler},
-                item: {index: 1, name: 'item', title: 'Item', onMenu: this.navMenuHandler, onRefresh: this.onReset, onInfo: this.onAbout},
+                battle: {index: 1, name: 'battle', title: 'Battle', onMenu: this.navMenuHandler, onRefresh: this.onReset, onInfo: this.onAbout},
                 about: {index: 7, name: 'about', title: 'About'}
             },
             version: '0.0.1'
@@ -32,10 +32,10 @@ var MainView = React.createClass({
         //new Promise((a,r)=> a())
         .then((data) => {
             if (data) {
-                this.state.routes.item.data = Items.get(data.item);
-                this.refs.navigator.resetTo(this.state.routes.item);
+                this.state.routes.battle.data = Battles.get(data.battle);
+                this.refs.navigator.resetTo(this.state.routes.battle);
             } else {
-                log.debug('mainView: no current item');
+                log.debug('mainView: no current battle');
             }
         })
         .done();
@@ -66,11 +66,11 @@ var MainView = React.createClass({
             this.refs.navigator.push(this.state.routes.about);
         }
         else if (e == 'item') {
-            this.state.routes.item.data = Items.get(id);
-            Current.reset(this.state.routes.item.data)
+            this.state.routes.battle.data = Battles.get(id);
+            Current.reset(this.state.routes.battle.data)
             .then(() => {
-                this.eventEmitter.emit('reset');
-                this.refs.navigator.resetTo(this.state.routes.item);
+                this.eventEmitter.emit('menureset');
+                this.refs.navigator.resetTo(this.state.routes.battle);
             });
         }
         this.toggleDrawer();
@@ -97,11 +97,11 @@ var MainView = React.createClass({
             );
         }
 
-        if (route.name == 'item') {
-            this.state.routes.item.title = route.data.name;
-            this.state.routes.item.subtitle = route.data.desc;
+        if (route.name == 'battle') {
+            this.state.routes.battle.title = route.data.name;
+            this.state.routes.battle.subtitle = route.data.desc;
             return (
-                <ItemView item={route.data} events={this.eventEmitter} />
+                <BattleView events={this.eventEmitter} />
             );
         }
 
@@ -125,9 +125,9 @@ var MainView = React.createClass({
                     onDrawerSlide={(e) => this.setState({drawerSlideOutput: JSON.stringify(e.nativeEvent)})}
                     onDrawerStateChanged={(e) => this.setState({drawerStateChangedOutput: JSON.stringify(e)})}
                     drawerWidth={300}
-                    renderNavigationView={() => <NavMenu items={Items.items.map((item,i) => {
+                    renderNavigationView={() => <NavMenu items={Battles.battles.map((battle,i) => {
                             return (
-                                <NavMenuItem key={i+1} item={item} onPress={this.navMenuHandler} />
+                                <NavMenuItem key={i+1} item={battle} onPress={this.navMenuHandler} />
                             );
                         })} /> }>
                     <MenuContext style={{flex: 1}}>

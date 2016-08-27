@@ -1,5 +1,5 @@
 {
-    item: 1,
+    battle: 1,
     turn: 1,
     phase: 0,
     victory: {

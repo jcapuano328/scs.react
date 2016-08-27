@@ -1,7 +1,7 @@
 'use strict'
 var React = require('react');
 import { View, Image } from 'react-native';
-var Icons = require('./res/icons');
+var Icons = require('./widgets/icons');
 
 var LandingView = React.createClass({
     render() {

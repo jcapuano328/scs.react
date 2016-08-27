@@ -1,7 +1,7 @@
 'use strict'
 
 var Store = require('../stores/current');
-var Items = require('./items');
+var Battles = require('./battles');
 var log = require('./log');
 
 var _current = {};
@@ -30,9 +30,12 @@ module.exports = {
 			return _current;
 		});
 	},
+	battle() {
+		return Battles.get(_current.battle) || {};
+	},
 	turn() {
-		let item = Items.get(_current.item) || {};
-		let turns = item.turns || ['none'];
+		let battle = this.battle();
+		let turns = battle.turns || ['none'];
 		return turns[(_current.turn || 1)];
 	},
 	prevTurn(dosave) {
@@ -53,8 +56,8 @@ module.exports = {
 	},
 	nextTurn(dosave) {
 		log.debug('next turn: ' + _current.turn);
-		let item = Items.get(_current.item);
-		let maxturns = item.turns.length;
+		let battle = this.battle();
+		let maxturns = battle.turns.length;
 		log.debug('max turns: ' + maxturns);
 		if (++_current.turn >= maxturns) {
 			_current.turn = maxturns;
@@ -71,15 +74,15 @@ module.exports = {
         });
 	},
 	phase() {
-		let item = Items.get(_current.item);
-		let phase = item.phases[_current.phase];
+		let battle = this.battle();
+		let phase = battle.phases[_current.phase];
 		log.debug('phase: ' + phase);
 		return phase;
 	},
 	prevPhase() {
 		if (--_current.phase < 0) {
-			let item = Items.get(_current.item);
-			_current.phase = item.phases.length - 1;
+			let battle = Battles.get(_current.battle);
+			_current.phase = battle.phases.length - 1;
 			this.prevTurn(false);
 		}
     	return this.save()
@@ -88,8 +91,8 @@ module.exports = {
 		});
 	},
 	nextPhase() {
-		let item = Items.get(_current.item);
-		if (++_current.phase >= item.phases.length) {
+		let battle = this.battle();
+		if (++_current.phase >= battle.phases.length) {
 			_current.phase = 0;
 			this.nextTurn(false);
 		}

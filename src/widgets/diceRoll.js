@@ -25,27 +25,24 @@ var DieButton = React.createClass({
 });
 
 var DiceRoll = React.createClass({
-    getInitialState() {
-        return {
-            dice: new Dice.Dice(this.props.dice)
-        };
-    },
+    dice: null,
     onRoll(e) {
-      this.state.dice.roll();
-      this.props.onRoll && this.props.onRoll(this.state.dice.dice());
+      this.dice.roll();
+      this.props.onRoll && this.props.onRoll(this.dice.dice());
     },
     onDie(e) {
-      let die = this.state.dice.dieEx(e);
+      let die = this.dice.dieEx(e);
       die.increment(true);
       this.props.onDie && this.props.onDie(e, die.value());
     },
     render() {
+        this.dice = new Dice.Dice(this.props.dice);
         //style={{flex: 1,padding: 5, alignItems: 'center'}}
         //, alignItems: 'center'
         return (
           <View style={{flex: 1, flexDirection: 'row'}}>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'flex-end', marginTop: 12}}>
-                {this.state.dice.map((die, i) => {
+                {this.dice.map((die, i) => {
                     if (i<this.props.values.length) {
                         die.value(this.props.values[i]);
                     }

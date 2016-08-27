@@ -2,7 +2,7 @@
 var React = require('react');
 import { View, Text, Image, TouchableNativeFeedback, Linking } from 'react-native';
 var Button = require('apsl-react-native-button');
-var Icons = require('./res/icons');
+var Icons = require('./widgets/icons');
 var log = require('./services/log');
 
 var OpenURLButton = React.createClass({

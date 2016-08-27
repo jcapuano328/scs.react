@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { View, Image, Text, TouchableOpacity } from 'react-native';
-var Icons = require('../res/icons');
+var Icons = require('./icons');
 var log = require('../services/log');
 
 var NavMenuItem = React.createClass({

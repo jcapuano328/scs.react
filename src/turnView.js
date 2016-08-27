@@ -3,7 +3,7 @@
 var React = require('react');
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 var SpinSelect = require('./widgets/spinSelect');
-var icons = require('./res/icons');
+var icons = require('./widgets/icons');
 var Current = require('./services/current');
 
 var TurnView = React.createClass({
@@ -58,7 +58,7 @@ var TurnView = React.createClass({
         return (
             <View style={{flexDirection: 'row', height: 90, marginTop: 60, marginLeft: 10, marginRight: 10}}>
                 <View style={{flex: 1}}>
-                    <Image style={{width: 96,height: 88,resizeMode: 'contain'}} source={icons[this.props.item.image]}/>
+                    <Image style={{width: 96,height: 88,resizeMode: 'contain'}} source={icons[Current.battle().image]}/>
                 </View>
                 <View style={{flex: 5}}>
                     <SpinSelect value={this.state.turn} onPrev={this.onPrevTurn} onNext={this.onNextTurn} />
