@@ -100,5 +100,15 @@ module.exports = {
         .then(() => {
         	return this.phase();
 		});
-	}
+	},
+	victory(v) {
+		if (typeof v != 'undefined') {
+			_current.victory.player1 = v.player1 || _current.victory.player1;
+			_current.victory.player2 = v.player2 || _current.victory.player2;
+		}
+		return {
+			player1: _current.victory.player1,
+			player2: _current.victory.player2
+		};
+	},
 };
