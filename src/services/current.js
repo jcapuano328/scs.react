@@ -1,32 +1,41 @@
 'use strict'
-
-var Store = require('../stores/current');
+import {Store, Log} from 'react-native-app-nub';
+var store = Store('scs.app.current');
 var Battles = require('./battles');
-var log = require('./log');
+var log = Log;
 
 var _current = {};
 
 module.exports = {
 	load() {
-		return Store.load()
+		return store.load()
 		.then((current) => {
         	_current = current;
             return _current;
 		});
 	},
 	save() {
-		return Store.save(_current);
+		return store.save(_current);
 	},
 	remove() {
-		return Store.remove()
+		return store.remove()
 		.then(() => {
 			_current = null;
 		});
 	},
 	reset(data) {
-		return Store.reset(data)
+		let blank = {
+		    battle: data.id,
+		    turn: 1,
+		    phase: 0,
+		    victory: {
+		        player1: 0,
+		        player2: 0
+		    }
+		};
+		return store.save(blank)
 		.then((current) => {
-			_current = current;
+			_current = blank;
 			return _current;
 		});
 	},

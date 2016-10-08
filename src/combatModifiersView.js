@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { View, ScrollView, Text } from 'react-native';
-var SpinNumeric = require('./widgets/spinNumeric');
+import {SpinNumeric} from 'react-native-app-nub';
 
 var CombatModifier = React.createClass({
     render() {

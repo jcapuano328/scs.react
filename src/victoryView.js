@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { View, Text } from 'react-native';
-var SpinNumeric = require('./widgets/spinNumeric');
+import {SpinNumeric} from 'react-native-app-nub';
 var Current = require('./services/current');
 
 let VictoryView = React.createClass({

@@ -2,11 +2,10 @@
 
 var React = require('react');
 import { View, Image, Text } from 'react-native';
-var SelectList = require('./widgets/selectList');
-var MultiSelectList = require('./widgets/multiSelectList');
-var DiceRoll = require('./widgets/diceRoll');
+import {SelectList,MultiSelectList} from 'react-native-app-nub';
+import {DiceRoll} from 'react-native-dice';
 var Dice = require('./services/dice');
-var Icons = require('./widgets/icons');
+var Icons = require('./res/icons');
 var Current = require('./services/current');
 var Barrage = require('./services/barrage');
 
@@ -37,7 +36,7 @@ let BarrageView = React.createClass({
         Object.keys(this.state||{}).filter((k) => k.startsWith('die')).forEach((k) => delete this.state[k]);
         for (var i=1; i<=battle.barrageTable.dice.number; i++) {
             state['die'+i.toString()] = 1;
-            this.dice.push({num: 1, low: 1, high: battle.barrageTable.dice.sides, color: Dice.dieColor(i)});
+            this.dice.push({num: 1, low: 1, high: battle.barrageTable.dice.sides, color: Dice.dieColor(i), dotcolor: Dice.dotColor(i)});
         }
     },
     onChangeStrength(v) {

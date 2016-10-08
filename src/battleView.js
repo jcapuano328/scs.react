@@ -1,7 +1,7 @@
 'use strict'
 
 var React = require('react');
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 var ScrollableTabView = require('react-native-scrollable-tab-view');
 var TurnView = require('./turnView');
 var BarrageView = require('./barrageView');
@@ -17,9 +17,6 @@ var BattleView = React.createClass({
     },
     componentWillMount: function() {
         this.props.events.addListener('menureset', this.onReset);
-    },
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
     },
     onReset() {
         Current.reset(Current.battle())

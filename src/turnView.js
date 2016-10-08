@@ -2,8 +2,8 @@
 
 var React = require('react');
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-var SpinSelect = require('./widgets/spinSelect');
-var icons = require('./widgets/icons');
+import {SpinSelect} from 'react-native-app-nub';
+var Icons = require('./res/icons');
 var Current = require('./services/current');
 
 var TurnView = React.createClass({
@@ -15,9 +15,6 @@ var TurnView = React.createClass({
     },
     componentDidMount: function() {
         this.props.events.addListener('reset', this.onReset);
-    },
-    shouldComponentUpdate(nextProps, nextState) {
-        return true;
     },
     onReset() {
         this.setState({turn: Current.turn(), phase: Current.phase()});
@@ -58,7 +55,7 @@ var TurnView = React.createClass({
         return (
             <View style={{flexDirection: 'row', height: 90, marginTop: 60, marginLeft: 10, marginRight: 10}}>
                 <View style={{flex: 1}}>
-                    <Image style={{width: 96,height: 88,resizeMode: 'contain'}} source={icons[Current.battle().image]}/>
+                    <Image style={{width: 96,height: 88,resizeMode: 'contain'}} source={Icons[Current.battle().image]}/>
                 </View>
                 <View style={{flex: 5}}>
                     <SpinSelect value={this.state.turn} onPrev={this.onPrevTurn} onNext={this.onNextTurn} />
