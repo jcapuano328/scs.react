@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { View, Image, Text, Picker } from 'react-native';
-import {SpinNumeric,SelectList} from 'react-native-app-nub';
+import {SpinNumeric,RadioButtonGroup,SelectList} from 'react-native-app-nub';
 import {DiceRoll} from 'react-native-dice';
 var CombatModifiersView = require('./combatModifiersView');
 var Dice = require('./services/dice');
@@ -52,7 +52,7 @@ let CombatView = React.createClass({
         this.resolve();
     },
     onChangeTerrain(t) {
-        this.state.terrain = t;
+        this.state.terrain = t || this.state.terrain;
         this.resolve();
     },
     onChangeTerrainBetween(t) {
@@ -108,15 +108,15 @@ let CombatView = React.createClass({
             <View style={{flex: 1}}>
                 <View style={{flex: 4, flexDirection: 'row'}}>
                     <View style={{flex: 3, alignItems: 'center'}}>
-                        <View style={{flex: .25, justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
-                            <View style={{flex: 1, alignItems: 'center'}}>
-                                <Text>Attack</Text>
+                        <View style={{flex: .4, justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
+                            <View style={{flex: 1, alignItems: 'center', backgroundColor:'silver'}}>
+                                <Text style={{fontSize: 18}}>Attack</Text>
                             </View>
-                            <View style={{flex: 1, alignItems: 'center'}}>
-                                <Text>Defend</Text>
+                            <View style={{flex: 1, alignItems: 'center', backgroundColor:'silver'}}>
+                                <Text style={{fontSize: 18}}>Defend</Text>
                             </View>
                         </View>
-                        <View style={{flex: .6, justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'row'}}>
+                        <View style={{flex: 2, justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'row'}}>
                             <View style={{flex: 1}}>
                                 <SpinNumeric value={this.state.attack} min={1} max={500} onChanged={this.onChangeAttack} />
                             </View>
@@ -124,7 +124,7 @@ let CombatView = React.createClass({
                                 <SpinNumeric value={this.state.defend} min={1} max={500} onChanged={this.onChangeDefend} />
                             </View>
                         </View>
-                        <View style={{flex: 6, alignSelf: 'stretch'}}>
+                        <View style={{flex: 6.6, alignSelf: 'stretch'}}>
                             <CombatModifiersView modifiers={b.modifiers.map((mod) => {
                                     return {
                                         name: mod.name,
@@ -139,9 +139,19 @@ let CombatView = React.createClass({
                     </View>
                     <View style={{flex: 2, alignItems: 'flex-start'}}>
                         <View style={{flex: 1, alignSelf: 'stretch'}}>
+                            {/*<RadioButtonGroup title={'Terrain'} direction={'vertical'}
+                                buttons={terrain.map((t) => {return {label:t.name,value:t.name};})}
+                                state={this.state.terrain}
+                                onSelected={this.onChangeTerrain}/>
+                            */}
                             <SelectList title={'Terrain'} titleonly={true} items={terrain/*.filter((t) => t.combat.attackmod.type || t.combat.defendmod.type)*/.map((t) => t.name)} selected={this.state.terrain} onChanged={this.onChangeTerrain}/>
                         </View>
                         <View style={{flex: 1, alignSelf: 'stretch'}}>
+                            {/*<RadioButtonGroup title={'Intervening'} direction={'vertical'}
+                                buttons={terrain.map((t) => {return {label:t.name,value:t.name};})}
+                                state={this.state.between}
+                                onSelected={this.onChangeTerrainBetween}/>
+                            */}
                             <SelectList title={'Intervening'} titleonly={true} items={terrain/*.filter((t) => t.combat.attackmod.type || t.combat.defendmod.type)*/.map((t) => t.name)} selected={this.state.between} onChanged={this.onChangeTerrainBetween}/>
                         </View>
                     </View>

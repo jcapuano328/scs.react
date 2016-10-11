@@ -23,9 +23,9 @@ module.exports = {
 			_current = null;
 		});
 	},
-	reset(data) {
+	reset() {
 		let blank = {
-		    battle: data.id,
+		    battle: _current.battle,
 		    turn: 1,
 		    phase: 0,
 		    victory: {

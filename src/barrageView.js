@@ -2,7 +2,7 @@
 
 var React = require('react');
 import { View, Image, Text } from 'react-native';
-import {SelectList,MultiSelectList} from 'react-native-app-nub';
+import {RadioButtonGroup,MultiSelectList} from 'react-native-app-nub';
 import {DiceRoll} from 'react-native-dice';
 var Dice = require('./services/dice');
 var Icons = require('./res/icons');
@@ -80,10 +80,16 @@ let BarrageView = React.createClass({
             <View style={{flex: 1}}>
                 <View style={{flex: 4, flexDirection: 'row'}}>
                     <View style={{flex: 0.75, alignItems: 'flex-start'}}>
-                        <SelectList title={'Strength'} titleonly={true} items={b.table.map((t) => t.strength)} selected={this.state.strength} onChanged={this.onChangeStrength}/>
+                        <RadioButtonGroup title={'Strength'} direction={'vertical'}
+                            buttons={b.table.map((t) => {return {label:t.strength,value:t.strength};})}
+                            state={this.state.strength}
+                            onSelected={this.onChangeStrength}/>
                     </View>
                     <View style={{flex: 1, alignItems: 'flex-start'}}>
-                        <SelectList title={'Terrain'} titleonly={true} items={terrain/*.filter((t) => t.barrage.attackmod.type || t.barrage.defendmod.type)*/.map((t) => t.name)} selected={this.state.terrain} onChanged={this.onChangeTerrain}/>
+                        <RadioButtonGroup title={'Terrain'} direction={'vertical'}
+                            buttons={terrain/*.filter((t) => t.barrage.attackmod.type || t.barrage.defendmod.type)*/.map((t) => {return {label:t.name,value:t.name};})}
+                            state={this.state.terrain}
+                            onSelected={this.onChangeTerrain}/>                        
                     </View>
                     <View style={{flex: 1}}>
                         <MultiSelectList title={'Modifiers'} items={b.modifiers.map((m) => {return {name: m.name, selected: this.state.mods[m.name]};})} onChanged={this.onChangeMods}/>

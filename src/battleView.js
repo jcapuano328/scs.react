@@ -19,7 +19,7 @@ var BattleView = React.createClass({
         this.props.events.addListener('menureset', this.onReset);
     },
     onReset() {
-        Current.reset(Current.battle())
+        Current.reset()
         .then((current) => {
             this.props.events.emit('reset');
         })
