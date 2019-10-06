@@ -4,13 +4,13 @@ var store = Store('scs.app.current');
 var Battles = require('./battles');
 var log = Log;
 
-var _current = {};
+var _current = null;
 
 module.exports = {
 	load() {
 		return store.load()
 		.then((current) => {
-        	_current = current;
+			_current = current;
             return _current;
 		});
 	},
@@ -23,9 +23,9 @@ module.exports = {
 			_current = null;
 		});
 	},
-	reset() {
+	reset(data) {		
 		let blank = {
-		    battle: _current.battle,
+		    battle: (data || _current).battle,
 		    turn: 1,
 		    phase: 0,
 		    victory: {
@@ -34,8 +34,8 @@ module.exports = {
 		    }
 		};
 		return store.save(blank)
-		.then((current) => {
-			_current = blank;
+		.then((current) => {			
+			_current = blank;			
 			return _current;
 		});
 	},

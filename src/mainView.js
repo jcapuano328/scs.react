@@ -24,8 +24,8 @@ var MainView = React.createClass({
         };
     },
     fetch() {
-        Current.load()
-        //new Promise((a,r)=> a())
+        //Current.load()
+        new Promise((a,r)=> a())
         .then((data) => {
             if (data) {
                 this.state.routes.battle.data = Battles.get(data.battle);
@@ -62,8 +62,9 @@ var MainView = React.createClass({
             this.refs.navigator.push(this.state.routes.about);
         }
         else if (e == 'item') {
-            this.state.routes.battle.data = Battles.get(id);
-            Current.reset(this.state.routes.battle.data)
+            console.log('mainView.select', id);
+            this.state.routes.battle.data = Battles.get(id);                        
+            Current.reset({battle: id})
             .then(() => {
                 this.eventEmitter.emit('menureset');
                 this.refs.navigator.resetTo(this.state.routes.battle);
