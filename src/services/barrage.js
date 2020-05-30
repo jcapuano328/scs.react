@@ -1,17 +1,14 @@
-'use strict';
-var Current = require('./current');
-var Table = require('./table');
-var Modifier = require('./modifier');
+import Table from './table';
+import Modifier from './modifier';
 
 module.exports = {
-    resolve(str, terrain, mods, die1, die2) {
-        let battle = Current.battle();
-        let table = Table(battle.barrageTable);
+    resolve(str, terrain, mods, die1, die2, rules) {        
+        let table = Table(rules.barrageTable);
         let dice = table.diceValue(die1, die2, 0);
         let shift = 0;
-        terrain = battle.terrains.find((t) => t.name == terrain);
+        terrain = rules.terrains.find((t) => t.name == terrain);
         mods = mods.map((mod) => {
-            let m = battle.barrageTable.modifiers.find((tm) => tm.name == mod) || {};
+            let m = rules.barrageTable.modifiers.find((tm) => tm.name == mod) || {};
             return Modifier.modifier(m,1);
         });
 		if (terrain) {

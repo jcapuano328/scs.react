@@ -1,0 +1,807 @@
+{
+    "players": [
+        "allies-south",
+        "axis-south"
+    ],
+    "turns": [
+        "Nov 19-20 1941",
+        "Nov 21-22 1941",
+        "Nov 23-24 1941",
+        "Nov 25-26 1941",
+        "Nov 27-28 1941",
+        "Nov 29-20 1941",
+        "Dec 1-2 1941",
+        "Dec 3-4 1941",
+        "Dec 5-6 1941",
+        "Dec 7-8 1941",
+        "Dec 9-10 1941"
+    ],
+    "phases": {
+		"allies-south": [
+			"Air Point Determination",
+			"Movement",
+			"Barrage",
+			"Combat",
+			"Supply",
+			"Exploitation",
+			"DG Marker Removal"
+		],
+		"axis-south": [
+			"Movement",
+			"Barrage",
+			"Combat",
+			"Supply",
+			"Exploitation",
+			"DG Marker Removal"		
+		]
+	},
+    "terrains": [
+        {
+            "name": "Open",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Road",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Track",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Slope",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "mult",
+                    "value": 0.5
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Escarpment Road",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "mult",
+                    "value": 0.25
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "City",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "mult",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "name": "Salt Marsh",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "mult",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "name": "Wadi",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "mult",
+                    "value": 0.5
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "AT Ditch",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "mult",
+                    "value": 0.5
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Trench",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "mult",
+                    "value": 2
+                }
+            }
+        }
+    ],
+    "combatTable": {
+        "dice": {
+            "number": 2,
+            "base": "d",
+            "sides": 6
+        },
+        "table": [
+            {
+                "odds": -3,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 2,
+                        "result": "A3r1"
+                    },
+                    {
+                        "lo": 3,
+                        "hi": 4,
+                        "result": "A2r1"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 6,
+                        "result": "A2"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 9,
+                        "result": "A1"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "A1D1"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "A1D2r1"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D3r2"
+                    }
+                ]
+            },
+            {
+                "odds": -2,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "A2r1"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 5,
+                        "result": "A2"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 7,
+                        "result": "A1"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 8,
+                        "result": "A1D1"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 10,
+                        "result": "A1D2r1"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "A1D2r2"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D3r3"
+                    }
+                ]
+            },
+            {
+                "odds": 1,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 2,
+                        "result": "A2r1"
+                    },
+                    {
+                        "lo": 3,
+                        "hi": 3,
+                        "result": "A2"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 4,
+                        "result": "A2D1"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 7,
+                        "result": "A1D1"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "A1D2r1"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "D3r2"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D3r3"
+                    }
+                ]
+            },
+            {
+                "odds": 2,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "A2"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 6,
+                        "result": "A1D1"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A1D2"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "D2r1"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "D3r3"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D3r4"
+                    }
+                ]
+            },
+            {
+                "odds": 3,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 2,
+                        "result": "A2"
+                    },
+                    {
+                        "lo": 3,
+                        "hi": 5,
+                        "result": "A1D1"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 6,
+                        "result": "D1"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 8,
+                        "result": "D2r1"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 10,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "D3r3"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D3r4"
+                    }
+                ]
+            },
+            {
+                "odds": 4,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 2,
+                        "result": "A1"
+                    },
+                    {
+                        "lo": 3,
+                        "hi": 4,
+                        "result": "A1D1"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 5,
+                        "result": "D1"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 7,
+                        "result": "D2r1"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "D3r3"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "D3r4"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D4r4"
+                    }
+                ]
+            },
+            {
+                "odds": 5,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "A1D1"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 4,
+                        "result": "D1"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 6,
+                        "result": "D2r1"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 8,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 9,
+                        "result": "D3r3"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "D3r4"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "D4r4"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D4r5"
+                    }
+                ]
+            }
+        ],
+        "modifiers": [
+            {
+                "name": "HQ",
+                "type": "shift",
+                "value": 1
+            },
+            {
+                "name": "Air",
+                "type": "shift",
+                "value": 1
+            },
+            {
+                "name": "Rommel",
+                "type": "shift",
+                "value": 1
+            },
+            {
+                "name": "DG",
+                "type": "mult",
+                "value": 0.5
+            },
+            {
+                "name": "Out of Supply",
+                "type": "mult",
+                "value": 0.5
+            }
+        ]
+    },
+    "barrageTable": {
+        "dice": {
+            "number": 2,
+            "base": "d",
+            "sides": 6
+        },
+        "table": [
+            {
+                "strength": "1",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 10,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "DG"
+                    }
+                ]
+            },
+            {
+                "strength": "2 - 3",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 9,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 11,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "strength": "4 - 5",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 8,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 10,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "strength": "6 - 8",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 7,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 12,
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "strength": "9 - 12",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 6,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 8,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 12,
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "strength": "13 - 17",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 5,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 8,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 11,
+                        "result": "1"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "2"
+                    }
+                ]
+            },
+            {
+                "strength": "18 - 23",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 4,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 7,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 10,
+                        "result": "1"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "2"
+                    }
+                ]
+            },
+            {
+                "strength": "24+",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 7,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "1"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 12,
+                        "result": "2"
+                    }
+                ]
+            }
+        ],
+        "modifiers": [
+            {
+                "name": "No Spotter",
+                "type": "shift",
+                "value": -2
+            },
+            {
+                "name": "Salt Marsh",
+                "type": "shift",
+                "value": -1
+            },
+            {
+                "name": "City",
+                "type": "shift",
+                "value": -1
+            },
+            {
+                "name": "Tobruk Trench",
+                "type": "shift",
+                "value": -4
+            },
+            {
+                "name": "Trench",
+                "type": "shift",
+                "value": -2
+            }
+        ]
+    }
+}

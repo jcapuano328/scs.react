@@ -1,0 +1,86 @@
+[
+	{
+	    "id": 1,
+	    "name": "Stalingrad Pocket",
+	    "desc": "The Wehrmact's Greatest Disaster",
+        "image": "stalingradpocket",
+	    "sort": 1
+	},
+	{
+	    "id": 101,
+	    "name": "Afrika",
+	    "desc": "The War in Africa: 1940-1942",
+        "image": "afrika",
+	    "sort": 2
+	},
+	{
+	    "id": 2,
+	    "name": "Ardennes",
+	    "desc": "The Battle of the Bulge",
+        "image": "ardennes",
+	    "sort": 3
+	},
+	{
+	    "id": 107,
+	    "name": "Yom Kippur",
+	    "desc": "The Battle for the Sinai",
+        "image": "yomkippur",
+	    "sort": 4
+	},
+	{
+	    "id": 103,
+	    "name": "Crusader",
+	    "desc": "The 8th Army's Winter Victory, Nov-Dec 1941",
+        "image": "crusader",
+	    "sort": 5
+	},
+	{
+	    "id": 104,
+	    "name": "Gazala",
+	    "desc": "The Battle for Tobruk, May-June 1942",
+        "image": "gazala",
+	    "sort": 6
+	},
+	{
+	    "id": 108,
+	    "name": "Drive On Paris",
+	    "desc": "The First 100 Days on the Western Front: 1914",
+        "image": "driveonparis",
+	    "sort": 7
+	},
+	{
+	    "id": 5,
+	    "name": "Fallschirmjaeger",
+	    "desc": "Airborne Assault on Fortress Holland May 10 to 14, 1940",
+        "image": "fallschirmjaeger",
+	    "sort": 8
+	},
+	{
+	    "id": 106,
+	    "name": "The Mighty Endeavor",
+	    "desc": "The Campaign in Western Europe: 1944 - 1945",
+        "image": "themightyendeavor",
+	    "sort": 10
+	},
+	{
+	    "id": 105,
+	    "name": "Guadalajara",
+	    "desc": "Last Chance to Take Madrid!",
+        "image": "guadalajara",
+	    "sort": 11
+	},
+	{
+	    "id": 102,
+	    "name": "Bastogne",
+	    "desc": "Screaming Eagles Under Siege: 18-27 Dec '44",
+        "image": "bastogne",
+	    "sort": 13
+	},
+	{
+	    "id": 10,
+	    "name": "Heights of Courage",
+	    "desc": "The Battle for the Golan Heights, October 1973",
+        "image": "heightsofcourage",
+	    "sort": 16	    
+	}
+]

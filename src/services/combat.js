@@ -1,24 +1,21 @@
-'use strict';
-var Current = require('./current');
-var Table = require('./table');
-var Modifier = require('./modifier');
+import Table from './table';
+import Modifier from './modifier';
 
-let modifiers = (mods,attack) => {
+let modifiers = (combatTable,mods,attack) => {
     return mods.filter((mod) => (attack && mod.attcount) || (!attack && mod.defcount)).map((mod) => {
-        let m = battle.combatTable.modifiers.find((cm) => cm.name == mod.name) || {};
+        let m = combatTable.modifiers.find((cm) => cm.name == mod.name) || {};
         return Modifier.modifier(m,attack?mod.attcount:mod.defcount);
     });
 }
 
 module.exports = {
-    calculate(att,def,mods,terrain,between) {
-        let battle = Current.battle();
-        let table = Table(battle.combatTable);
-        let attmods = modifiers(mods, true);
-        let defmods = modifiers(mods, false);
+    calculate(att,def,mods,terrain,between,rules) {        
+        let table = Table(rules.combatTable);
+        let attmods = modifiers(rules.combatTable, mods, true);
+        let defmods = modifiers(rules.combatTable, mods, false);
 
-        terrain = battle.terrains.find((t) => t.name == terrain) || {combat: {}};
-        between = battle.terrains.find((t) => t.name == between) || {combat: {}};
+        terrain = rules.terrains.find((t) => t.name == terrain) || {combat: {}};
+        between = rules.terrains.find((t) => t.name == between) || {combat: {}};
 
         att *= Modifier.modifyMULT(attmods) *
             Modifier.modifyMULT([Modifier.modifier(terrain.combat.attackmod,1)]) *
@@ -34,11 +31,10 @@ module.exports = {
         }
         return odds;
     },
-    resolve(odds,mods,die1,die2) {
-        let battle = Current.battle();
-        let table = Table(battle.combatTable);
-        let attmods = modifiers(mods, true);
-        let defmods = modifiers(mods, false);
+    resolve(odds,mods,die1,die2,rules) {        
+        let table = Table(rules.combatTable);
+        let attmods = modifiers(rules.combatTable, mods, true);
+        let defmods = modifiers(rules.combatTable, mods, false);
 
         let drm = Modifier.modifyDRM(attmods) - Modifier.modifyDRM(defmods);
         let dice = table.diceValue(die1, die2, drm);

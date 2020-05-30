@@ -1,0 +1,942 @@
+{
+    "players": [
+        "egypt",
+        "israel"
+    ],
+    "turns": [
+        "Oct 6 1973",
+        "Oct 7-8 1973",
+        "Oct 9-10 1973",
+        "Oct 11-12 1973",
+        "Oct 13-14 1973",
+        "Oct 15-16 1973",
+        "Oct 17-18 1973",
+        "Oct 19-20 1973",
+        "Oct 21-22 1973",
+        "Oct 23-24 1973",
+        "Oct 25-26 1973",
+        "Oct 27-28 1973"
+    ],
+    "phases": {
+        "egypt": [
+			"Egyptian Barrage",
+			"Air Unit Reset",
+			"Air Unit SAM Suppression",
+			"Reserve Release",
+			"Movement",
+			"Barrage",
+			"Combat",
+			"Supply",
+			"Bridging",
+			"Exploitation",
+			"Tank Replacement",
+			"Clean Up",
+		],
+        "israel": [
+			"Movement",
+			"Barrage",
+			"Combat",
+			"Supply",
+			"Bridging",
+			"Exploitation",
+			"Tank Recovery",
+			"Clean Up",
+			"Cease Fire Check"		
+		]	
+	},
+    "terrains": [
+        {
+            "name": "Open",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Rough",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "mult",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "name": "Sand Dune",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "mult",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "name": "Swamp",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "mult",
+                    "value": 2
+                }
+            }
+        },
+        {
+            "name": "City",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "mult",
+                    "value": 3
+                }
+            }
+        },
+        {
+            "name": "Suez Canal",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "mult",
+                    "value": 0.25
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Minor Canal",
+            "barrage": {
+                "attackmod": {
+                	"type": "",
+                    "value": 0
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            },
+            "combat": {
+                "attackmod": {
+                	"type": "mult",
+                    "value": 0.5
+                },
+                "defendmod": {
+                	"type": "",
+                    "value": 0
+                }
+            }
+        }
+    ],
+    "combatTable": {
+        "dice": {
+            "number": 2,
+            "base": "d",
+            "sides": 6
+        },
+        "table": [
+            {
+                "odds": -4,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 2,
+                        "result": "A2r1*"
+                    },
+                    {
+                        "lo": 3,
+                        "hi": 4,
+                        "result": "A1r1*"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 8,
+                        "result": "A1*"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 9,
+                        "result": "A1*Dr1"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 11,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "A*D2r2*"
+                    }
+                ]
+            },
+            {
+                "odds": -3,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "A1r1*"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 7,
+                        "result": "A1*"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 8,
+                        "result": "A1*Dr1"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 10,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "A1*D1r2*"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "A*D2r2*"
+                    }
+                ]
+            },
+            {
+                "odds": -2,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 2,
+                        "result": "A1r1*"
+                    },
+                    {
+                        "lo": 3,
+                        "hi": 6,
+                        "result": "A1*"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A1*Dr1"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "A1*D1r2*"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "A*D2r2*"
+                    }
+                ]
+            },
+            {
+                "odds": 1,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 2,
+                        "result": "A1r1*"
+                    },
+                    {
+                        "lo": 3,
+                        "hi": 5,
+                        "result": "A1*"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 6,
+                        "result": "A1*Dr1"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 8,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 9,
+                        "result": "A1*D1r1*"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 11,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "A*D2r2*"
+                    }
+                ]
+            },
+            {
+                "odds": 2,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 4,
+                        "result": "A1*"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 7,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 8,
+                        "result": "A1*D1r1*"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 9,
+                        "result": "A*D1r1*"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "A*D2r2*"
+                    }
+                ]
+            },
+            {
+                "odds": 3,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "A1*"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 6,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A1*D1r1*"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 8,
+                        "result": "A*D1r1*"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 9,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 11,
+                        "result": "A*D2r2*"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D2r2"
+                    }
+                ]
+            },
+            {
+                "odds": 4,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 2,
+                        "result": "A1*"
+                    },
+                    {
+                        "lo": 3,
+                        "hi": 5,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 6,
+                        "result": "A1*D1r1*"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A*D1r1*"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 8,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 10,
+                        "result": "A*D2r2*"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 11,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D3r2"
+                    }
+                ]
+            },
+            {
+                "odds": 5,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 4,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 5,
+                        "result": "A1*D1r1*"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 6,
+                        "result": "A*D1r1*"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "A*D2r2*"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "D3r2"
+                    }
+                ]
+            },
+            {
+                "odds": 6,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 4,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 5,
+                        "result": "A1*D1r1*"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 6,
+                        "result": "A*D1r1*"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "A*D2r2*"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 10,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "D3r2"
+                    }
+                ]
+            },
+            {
+                "odds": 7,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 4,
+                        "result": "A1*D1r1*"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 5,
+                        "result": "A*D1r1*"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 6,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A*D2r2*"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 8,
+                        "result": "A*D2r2"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 9,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 11,
+                        "result": "D3r2"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D3r3"
+                    }
+                ]
+            },
+            {
+                "odds": 8,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 4,
+                        "result": "A1*D1r1*"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 5,
+                        "result": "A*D1r1*"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 6,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A*D2r2*"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 8,
+                        "result": "A*D2r2"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 9,
+                        "result": "D2r2"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 11,
+                        "result": "D3r2"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "D3r3"
+                    }
+                ]
+            },
+            {
+                "odds": 9,
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "A1*Dr1*"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 4,
+                        "result": "A*D1r1*"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 5,
+                        "result": "A*D1r2*"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 6,
+                        "result": "A*D2r2*"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 7,
+                        "result": "A*D2r2"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 10,
+                        "result": "D3r2"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "D3r3"
+                    }
+                ]
+            }
+        ],
+        "modifiers": [
+            {
+                "name": "Air",
+                "type": "shift",
+                "value": 1
+            },
+            {
+                "name": "HQ",
+                "type": "shift",
+                "value": 1
+            },
+            {
+                "name": "Engineer",
+                "type": "shift",
+                "value": 1
+            },
+            {
+                "name": "DG",
+                "type": "mult",
+                "value": 0.5
+            },
+            {
+                "name": "OOS",
+                "type": "mult",
+                "value": 0.5
+            }
+        ]
+    },
+    "barrageTable": {
+        "dice": {
+            "number": 2,
+            "base": "d",
+            "sides": 6
+        },
+        "table": [
+            {
+                "strength": "1",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 10,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "DG"
+                    }
+                ]
+            },
+            {
+                "strength": "2 - 3",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 9,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 11,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "strength": "4 - 5",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 8,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 10,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "strength": "6 - 8",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 7,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 12,
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "strength": "9 - 12",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 6,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 7,
+                        "hi": 8,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 12,
+                        "result": "1"
+                    }
+                ]
+            },
+            {
+                "strength": "13 - 17",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 5,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 6,
+                        "hi": 8,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 9,
+                        "hi": 11,
+                        "result": "1"
+                    },
+                    {
+                        "lo": 12,
+                        "hi": 12,
+                        "result": "2"
+                    }
+                ]
+            },
+            {
+                "strength": "18 - 23",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 4,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 5,
+                        "hi": 7,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 10,
+                        "result": "1"
+                    },
+                    {
+                        "lo": 11,
+                        "hi": 12,
+                        "result": "2"
+                    }
+                ]
+            },
+            {
+                "strength": "24+",
+                "results": [
+                    {
+                        "lo": 2,
+                        "hi": 3,
+                        "result": "NE"
+                    },
+                    {
+                        "lo": 4,
+                        "hi": 7,
+                        "result": "DG"
+                    },
+                    {
+                        "lo": 8,
+                        "hi": 9,
+                        "result": "1"
+                    },
+                    {
+                        "lo": 10,
+                        "hi": 12,
+                        "result": "2"
+                    }
+                ]
+            }
+        ],
+        "modifiers": [
+            {
+                "name": "No Spotter",
+                "type": "shift",
+                "value": -2
+            },
+            {
+                "name": "Sand Dune",
+                "type": "shift",
+                "value": -1
+            },
+            {
+                "name": "City",
+                "type": "shift",
+                "value": -1
+            },
+            {
+                "name": "Swamp",
+                "type": "shift",
+                "value": -4
+            },
+            {
+                "name": "Rough",
+                "type": "shift",
+                "value": -1
+            }
+        ]
+    }
+}
