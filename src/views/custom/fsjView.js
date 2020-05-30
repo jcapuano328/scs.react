@@ -10,7 +10,7 @@ import FsjBarrageLossView from './fsjBarrageLossView';
 var FsjView = React.createClass({
     getInitialState() {
         return {
-            initialPage: 3
+            initialPage: 0
         };
     },
     render() {        
