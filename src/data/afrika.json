@@ -839,25 +839,5 @@
                 "value": 0.5
             }
         ]
-    },
-    "barrageTable": {
-        "dice": {
-            "number": 2,
-            "base": "d",
-            "sides": 6
-        },
-        "table": [
-            {
-                "strength": "NA",
-                "results": [
-                    {
-                        "lo": 2,
-                        "hi": 12,
-                        "result": "NE"
-                    }
-                ]
-            }
-        ],
-        "modifiers": []
     }
 }

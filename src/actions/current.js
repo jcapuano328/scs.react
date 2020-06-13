@@ -8,7 +8,7 @@ export const reset = (e) => (dispatch,getState) => {
     e = e || {battle: current.battle};
     let data = {
         battle: e.battle,
-        turn: 1,
+        turn: 0,
         player: 0,
         phase: 0,                
         victory: {

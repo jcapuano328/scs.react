@@ -579,14 +579,5 @@
                 "value": 1
             }
         ]
-    },
-    "barrageTable": {
-        "dice": {
-            "number": 1,
-            "base": "d",
-            "sides": 6
-        },
-        "table": [],
-        "modifiers": []
     }
 }

@@ -6,6 +6,7 @@ module.exports = {
 	"menu": Icons['menu-dark'],
 	"info": Icons['info-dark'],
 	"refresh": Icons['refresh-dark'],
+	"reset": require('./reset.png'),
 
 	"NE": require('./no-effect.png'),
 	"DG": require('./disorganized.png'),

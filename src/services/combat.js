@@ -1,16 +1,26 @@
 import Table from './table';
 import Modifier from './modifier';
 
-let modifiers = (combatTable,mods,attack) => {
+const modifiers = (combatTable,mods,attack) => {
     return mods.filter((mod) => (attack && mod.attcount) || (!attack && mod.defcount)).map((mod) => {
         let m = combatTable.modifiers.find((cm) => cm.name == mod.name) || {};
         return Modifier.modifier(m,attack?mod.attcount:mod.defcount);
     });
 }
 
+const findOdds = (odds, table) => {	    
+	for (var i=table.length-1; i>=0; i--) {
+		let v = table[i].odds;
+		if (v <= odds || odds > v) {
+			return v;
+		}
+	}
+	return table[0].odds;
+}
+
+
 module.exports = {
     calculate(att,def,mods,terrain,between,rules) {        
-        let table = Table(rules.combatTable);
         let attmods = modifiers(rules.combatTable, mods, true);
         let defmods = modifiers(rules.combatTable, mods, false);
 
@@ -29,7 +39,9 @@ module.exports = {
         if (att > 0 && def > 0) {
             odds = Math.round((att > def) ? att/def : def/att) * ((att<def) ? -1 : 1);
         }
-        return odds;
+        odds = findOdds(odds, rules.combatTable.table);
+
+        return odds == -1 ? 1 : odds;
     },
     resolve(odds,mods,die1,die2,rules) {        
         let table = Table(rules.combatTable);

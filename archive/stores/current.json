@@ -1,9 +1,0 @@
-{
-    battle: 1,
-    turn: 1,
-    phase: 0,
-    victory: {
-        player1: 0,
-        player2: 0
-    }
-}

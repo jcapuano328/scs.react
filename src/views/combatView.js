@@ -65,6 +65,13 @@ let CombatView = React.createClass({
         this.state.mods[m.name] = mod;
         this.resolve();
     },
+    onResetMod(m) {
+        let mod = this.state.mods[m.name] || {attack: 0, defend: 0};
+        mod.attack = 0;
+        mod.defend = 0;
+        this.state.mods[m.name] = mod;
+        this.resolve();
+    },
     onDiceRoll(d) {
         d.forEach((die,i) => this.state['die'+(i+1)] = die.value);
         this.resolve();
@@ -73,14 +80,14 @@ let CombatView = React.createClass({
         this.state['die'+d] = v;
         this.resolve();
     },
-    getModifiers(attack) {
+    getModifiers() {
         let mods = [];
         Object.keys(this.state.mods).forEach((k) => {
-            if (attack && (this.state.mods[k].attack > 0 || this.state.mods[k].defend > 0)) {
+            if (this.state.mods[k].attack > 0 || this.state.mods[k].defend > 0) {
                 mods.push({
                     name: k,
-                    attcount: attack,
-                    defcount: defend
+                    attcount: this.state.mods[k].attack,
+                    defcount: this.state.mods[k].defend
                 });
             }
         });
@@ -88,7 +95,7 @@ let CombatView = React.createClass({
     },
     resolve(odds) {
         let battle = this.props.battle;
-        let rules = {combatTable: this.props.battle.combatTable, terrains: this.props.battle.terrains};
+        let rules = {combatTable: this.props.battle.combatTable, terrains: this.props.battle.terrains};        
         this.state.odds = odds || Combat.calculate(+this.state.attack,+this.state.defend,this.getModifiers(),this.state.terrain,this.state.between,rules);
         this.state.results = Combat.resolve(this.state.odds,this.getModifiers(),this.state.die1,this.state.die2,rules);
         this.setState(this.state);
@@ -155,6 +162,7 @@ let CombatView = React.createClass({
                                 })}
                                 onChangeAttack={this.onChangeAttackMod}
                                 onChangeDefend={this.onChangeDefendMod}
+                                onReset={this.onResetMod}
                             />
                         </View>
                     </View>

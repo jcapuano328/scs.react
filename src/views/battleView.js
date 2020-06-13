@@ -8,6 +8,7 @@ import BarrageView from './barrageView';
 import CombatView from './combatView';
 import VictoryView from './victoryView';
 import FsjView from './custom/fsjView';
+import TmeView from './custom/tmeView';
 import getGame from '../selectors/game';
 
 var BattleView = React.createClass({
@@ -25,9 +26,9 @@ var BattleView = React.createClass({
                     tabBarTextStyle={{fontSize: Style.Font.large()}}
                     initialPage={this.state.initialPage}
                 >
-                    {this.props.battle.custom ? this.customView(this.props.battle.custom) : null}                    
-                    <BarrageView battle={this.props.battle} tabLabel="Barrage" />                    
-                    <CombatView battle={this.props.battle} tabLabel="Combat" />
+                    {this.props.battle.custom ? this.customView(this.props.battle.custom) : null}
+                    {this.props.battle.barrageTable ? <BarrageView battle={this.props.battle} tabLabel="Barrage" /> : null}
+                    {this.props.battle.combatTable ? <CombatView battle={this.props.battle} tabLabel="Combat" /> : null}
                     <VictoryView battle={this.props.battle} tabLabel="Victory" />
                 </ScrollableTabView>
             </View>
@@ -44,7 +45,9 @@ var BattleView = React.createClass({
       switch(custom.view) {
         case 'FsjView':
             TagName = FsjView;
-         default:
+            break;
+        case 'TmeView':
+            TagName = TmeView;
              break;
       }
       return (

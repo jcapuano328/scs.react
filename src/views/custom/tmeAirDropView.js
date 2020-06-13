@@ -6,28 +6,19 @@ import inRange from '../../services/inrange';
 import Modifier from '../../services/modifier';
 
 
-let FsjAirLandingView = React.createClass({
+let TmeAirDropView = React.createClass({
     dice: [
-        {num: 1, low: 1, high: 6, color: 'red', dotcolor:'white'},
-        {num: 1, low: 1, high: 6, color: 'blue', dotcolor:'white'},
-        {num: 1, low: 1, high: 6, color: 'black', dotcolor:'red'},
-        {num: 1, low: 1, high: 6, color: 'black', dotcolor:'white'}
+        {num: 1, low: 1, high: 6, color: 'red', dotcolor:'white'}
     ],
     getInitialState() {
         return {
             results: '',
             mods: {},
-            die1: 1,
-            die2: 1,
-            die3: 1,
-            die4: 1
+            die1: 1
         };
     },
     onDiceRoll(d) {
         this.state.die1 = d[0].value;
-        this.state.die2 = d[1].value;
-        this.state.die3 = d[2].value;
-        this.state.die4 = d[3].value;
         this.resolve();
     },
     onDieChanged(d,v) {
@@ -41,7 +32,7 @@ let FsjAirLandingView = React.createClass({
     getModifier() {
         let mods = [];
         let modifiers = this.props.battle.custom.airLanding.modifiers || [];
-        Object.keys(this.state.mods).forEach((k) => {   
+        Object.keys(this.state.mods).forEach((k) => {    
             if (this.state.mods[k]) {
                 let m = modifiers.find((mod) => mod.name == k);
                 if (m) { mods.push({...m, count: 1});}    
@@ -54,10 +45,6 @@ let FsjAirLandingView = React.createClass({
         let dice = this.state.die1 + this.getModifier();
         let results = table.find((r) => inRange(dice, r.low, r.high)) || {result: ''};
         this.state.results = results.result;
-        if (results.result.indexOf('Scatter') > -1) {
-            let scatter = ': Dir ' + this.state.die2.toString() + ', Dist ' + (this.state.die3+this.state.die4).toString();
-            this.state.results += scatter;
-        }
         this.setState(this.state);
     },
     render() {
@@ -67,11 +54,11 @@ let FsjAirLandingView = React.createClass({
             <View style={{flex: 1}}>
                 <View style={{flex:1, backgroundColor: 'whitesmoke'}}>
                     <View style={{flex: 3, marginTop: 2, flexDirection: 'row'}}>
-                        <View style={{flex:2, justifyContent: 'center', alignItems:'center'}} onLayout={this.onLayout}>
+                        <View style={{flex:5, justifyContent: 'center', alignItems:'center'}} onLayout={this.onLayout}>
                             <Text style={{fontSize: Style.Font.large(), fontWeight: 'bold'}}>{this.state.results}</Text>
                         </View>
                         <View style={{flex:3}}>
-                            <DiceRoll dice={this.dice} values={[this.state.die1,this.state.die2,this.state.die3,this.state.die4]}
+                            <DiceRoll dice={this.dice} values={[this.state.die1]}
                                 onRoll={this.onDiceRoll} onDie={this.onDieChanged}/>
                         </View>
                     </View>
@@ -80,7 +67,8 @@ let FsjAirLandingView = React.createClass({
                         <View style={{flex:3, borderRightWidth: 1, borderRightColor: 'gray'}}>
                             <MultiSelectList title={'Modifiers'} 
                                 labelFontSize={Style.Font.mediumlarge()}
-                                items={modifiers.map((m) => {return {name: m.name, selected: this.state.mods[m.name],fontSize:Style.Font.mediumlarge()};})} onChanged={this.onChangeMods}
+                                items={modifiers.map((m) => {return {name: m.name, selected: this.state.mods[m.name],fontSize:Style.Font.mediumlarge()};})} 
+                                onChanged={this.onChangeMods}
                             />
                         </View>
                         <View style={{flex:2, justifyContent: 'flex-start'}}>
@@ -102,10 +90,7 @@ let FsjAirLandingView = React.createClass({
                 </View>
             </View>
         );
-    },
-    nationalities() {        
-        return Object.keys(Tables);
     }
 });
 
-module.exports = FsjAirLandingView;
+module.exports = TmeAirDropView;

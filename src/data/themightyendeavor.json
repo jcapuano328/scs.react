@@ -1,4 +1,84 @@
 {
+    "custom": {
+        "view": "TmeView",        
+        "label": "TME",
+        "image": "tme",
+        "airSupport": [
+            { "low": 1, "high": 8, "result": [
+                {"low": 2, "high": 3, "result": "3"},
+                {"low": 4, "high": 6, "result": "4"},
+                {"low": 7, "high": 7, "result": "5"},
+                {"low": 8, "high": 8, "result": "6"},        
+                {"low": 9, "high": 10, "result": "7"},
+                {"low": 11, "high": 12, "result": "8"}                
+            ]},
+            { "low": 9, "high": 13, "result": [
+                {"low": 2, "high": 3, "result": "2"},
+                {"low": 4, "high": 6, "result": "3"},
+                {"low": 7, "high": 7, "result": "4"},
+                {"low": 8, "high": 8, "result": "5"},        
+                {"low": 9, "high": 10, "result": "6"},
+                {"low": 11, "high": 12, "result": "7"}                
+            ]},
+            { "low": 14, "high": 21, "result": [
+                {"low": 2, "high": 3, "result": "1"},
+                {"low": 4, "high": 5, "result": "2"},
+                {"low": 6, "high": 6, "result": "3"},
+                {"low": 7, "high": 7, "result": "4"},
+                {"low": 8, "high": 8, "result": "5"},        
+                {"low": 9, "high": 10, "result": "6"},
+                {"low": 11, "high": 12, "result": "7"}                
+            ]},
+            { "low": 22, "high": 25, "result": [
+                {"low": 2, "high": 3, "result": "2"},
+                {"low": 4, "high": 6, "result": "3"},
+                {"low": 7, "high": 7, "result": "4"},
+                {"low": 8, "high": 8, "result": "5"},        
+                {"low": 9, "high": 10, "result": "6"},
+                {"low": 11, "high": 12, "result": "7"}                
+            ]}
+        ],
+        "airLanding": {
+            "table": [
+                {"low": 1, "high": 1, "result": "Loss"},
+                {"low": 2, "high": 6, "result": "Safe"}               
+            ],
+            "modifiers": [
+                {"name": "Landing into EZOC","type": "drm","value": -1},
+                {"name": "Landing in Non-Open","type": "drm","value": -1}
+            ]
+        },
+        "invasion": {
+			"Other": [
+				{"low": 2,"high": 3,"result": "A2"},
+				{"low": 4,"high": 6,"result": "A1D1"},
+				{"low": 7,"high": 8,"result": "A1D1r1"},
+				{"low": 9,"high": 10,"result": "D2r1"},
+				{"low": 11,"high": 11,"result": "D2r2"},
+				{"low": 12,"high": 12,"result": "D2r3"}
+			],		
+			"Fortress": [
+				{"low": 2,"high": 6,"result": "A2"},
+				{"low": 7,"high": 7,"result": "A2D1"},
+				{"low": 8,"high": 8,"result": "A1D1"},
+				{"low": 9,"high": 9,"result": "A1D1r1"},
+				{"low": 10,"high": 10,"result": "A1D2r1"},
+				{"low": 11,"high": 11,"result": "D2r1"},
+				{"low": 12,"high": 12,"result": "D2r2"}
+			],
+			"Wetlands": [
+				{"low": 2,"high": 4,"result": "A2"},
+				{"low": 5,"high": 5,"result": "A2D1"},
+				{"low": 6,"high": 7,"result": "A1D1"},
+				{"low": 8,"high": 8,"result": "A1D1r1"},
+				{"low": 9,"high": 9,"result": "A1D2r1"},
+				{"low": 10,"high": 10,"result": "D2r1"},
+				{"low": 11,"high": 11,"result": "D2r2"},
+				{"low": 12,"high": 12,"result": "D2r3"}
+			]
+        }
+	},
+
     "players": [
         "allies-west",
         "germany"
@@ -722,25 +802,5 @@
                 "value": 0.5
             }
         ]
-    },
-    "barrageTable": {
-        "dice": {
-            "number": 2,
-            "base": "d",
-            "sides": 6
-        },
-        "table": [
-            {
-                "strength": "NA",
-                "results": [
-                    {
-                        "lo": 2,
-                        "hi": 12,
-                        "result": "NE"
-                    }
-                ]
-            }
-        ],
-        "modifiers": []
     }
 }

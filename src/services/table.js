@@ -25,7 +25,7 @@ module.exports = (table) => {
         },
         result(str, shift, dice) {
             let idx = table.table.findIndex((t) => {
-                return t.strength == str;
+                return t.strength == str || t.odds == str;
             });
             idx = idx < 0 ? table.table.length - 1 : idx;
             idx += shift;
