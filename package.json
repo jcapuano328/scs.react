@@ -1,6 +1,6 @@
 {
   "name": "scs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
@@ -12,8 +12,8 @@
     "install-dbg": "adb -d install -r android/app/build/outputs/apk/scs-debug-1.2.apk",
     "install-stg": "adb -d install -r android/app/build/outputs/apk/scs-releaseStaging-1.2.apk",
     "install-rel": "adb -d install -r android/app/build/outputs/apk/scs-release-1.2.apk",
-    "push": "code-push release-react LaBatailleAssistant android --description v1.2.0",
-    "promote": "code-push promote LaBatailleAssistant Staging Production --description v1.2.0 --mandatory",
+    "push": "code-push release-react LaBatailleAssistant android --description v1.2.1",
+    "promote": "code-push promote LaBatailleAssistant Staging Production --description v1.2.1 --mandatory",
     "bridge": "adb reverse tcp:8081 tcp:8081",
     "emulate-s3": "%ANDROID_HOME%/tools/emulator.exe -avd Galaxy_SIII",
     "emulate-nexus7": "%ANDROID_HOME%/tools/emulator.exe -avd Nexus_7",

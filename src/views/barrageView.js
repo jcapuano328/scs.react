@@ -93,7 +93,7 @@ let BarrageView = React.createClass({
                     <View style={{flex: 1, alignItems: 'flex-start'}}>
                         <RadioButtonGroup title={'Terrain'} direction={'vertical'}
                             labelFontSize={Style.Font.large()}
-                            buttons={terrain/*.filter((t) => t.barrage.attackmod.type || t.barrage.defendmod.type)*/.map((t) => {return {label:t.name,value:t.name,fontSize:Style.Font.mediumlarge()};})}
+                            buttons={terrain.filter((t) => !t.type || t.type != "intervening"/*t.barrage.attackmod.type || t.barrage.defendmod.type*/).map((t) => {return {label:t.name,value:t.name,fontSize:Style.Font.mediumlarge()};})}
                             state={this.state.terrain}
                             onSelected={this.onChangeTerrain}/>                        
                     </View>

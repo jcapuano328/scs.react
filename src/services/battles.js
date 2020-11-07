@@ -2,6 +2,7 @@
 
 var battles = require('../data/battles.json');
 var rules = {
+    "afb": require('../data/afb.json'),
     "afrika": require('../data/afrika.json'),
     "ardennes": require('../data/ardennes.json'),
     "bastogne": require('../data/bastogne.json'),
@@ -11,9 +12,11 @@ var rules = {
     "gazala": require('../data/gazala.json'),
     "guadalajara": require('../data/guadalajara.json'),
     "heightsofcourage": require('../data/heightsofcourage.json'),
+    "rostov41": require('../data/rostov41.json'),
     "stalingradpocket": require('../data/stalingradpocket.json'),
     "themightyendeavor": require('../data/themightyendeavor.json'),
-    "yomkippur": require('../data/yomkippur.json')
+    "yomkippur": require('../data/yomkippur.json'),
+    "botb": require('../data/botb.json')
 };
 
 module.exports = {

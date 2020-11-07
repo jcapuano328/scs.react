@@ -2,11 +2,10 @@ import React from 'react';
 import { View } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {Style} from 'react-native-nub';
-import TmeAirSupportView from './tmeAirSupportView';
-import TmeAirDropView from './tmeAirDropView';
-import TmeInvasionView from './tmeInvasionView';
+import DopForceMarchView from './dopForceMarchView';
+import DopReconstitutionView from './dopReconstitutionView';
 
-var TmeView = React.createClass({
+var DopView = React.createClass({
     getInitialState() {
         return {
             initialPage: 0
@@ -14,19 +13,18 @@ var TmeView = React.createClass({
     },
     render() {        
         return (
-            <View style={{flex: 1, backgroundColor: 'rgba(0,0,0,0.01)'}}>                
+            <View style={{flex: 1,backgroundColor: 'rgba(0,0,0,0.01)'}}>                
                 <ScrollableTabView
                     style={{backgroundColor: '#fff'}}
                     tabBarTextStyle={{fontSize: Style.Font.large()}}
                     initialPage={this.state.initialPage}
-                >
-                    <TmeAirSupportView battle={this.props.battle} tabLabel="Air Support" />
-                    <TmeAirDropView battle={this.props.battle} tabLabel="Air Drop" />
-                    <TmeInvasionView battle={this.props.battle} tabLabel="Invasion" />
+                >                    
+                    <DopForceMarchView battle={this.props.battle} tabLabel="Force March" />
+                    <DopReconstitutionView battle={this.props.battle} tabLabel="Reconstitution" />                    
                 </ScrollableTabView>
             </View>
         );
     }
 });
 
-module.exports = TmeView;
+module.exports = DopView;

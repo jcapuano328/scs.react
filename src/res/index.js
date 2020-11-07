@@ -6,6 +6,7 @@ module.exports = {
 	"menu": Icons['menu-dark'],
 	"info": Icons['info-dark'],
 	"refresh": Icons['refresh-dark'],
+	"back": Icons['chevron-left-dark'],
 	"reset": require('./reset.png'),
 
 	"NE": require('./no-effect.png'),
@@ -32,6 +33,7 @@ module.exports = {
 	"syria": require('./syria.png'),
 	"israel": require('./israel.png'),
 
+	"afb": require('./afb.jpg'),
 	"afrika": require('./afrika.jpg'),
 	"ardennes": require('./ardennes.jpg'),
 	"bastogne": require('./bastogne.jpg'),
@@ -44,8 +46,10 @@ module.exports = {
 	"guadalajara": require('./guadalajara.jpg'),
 	"heightsofcourage": require('./heightsofcourage.jpg'),
 	"operationmichael": require('./operationmichael.png'),
+	"rostov41": require('./rostov41.jpg'),
 	"stalingradpocket": require('./stalingradpocket.jpg'),
 	"themightyendeavor": require('./themightyendeavor.jpg'),
 	"victory": require('./victory.jpg'),
-	"yomkippur": require('./yomkippur.jpg')
+	"yomkippur": require('./yomkippur.jpg'),
+	"botb": require('./botb.jpg')
 };

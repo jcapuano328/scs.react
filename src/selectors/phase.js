@@ -9,7 +9,7 @@ export default createSelector(
     (game,player,phase) => {                
         if (game.phases[player]) {
             return game.phases[player][phase];
-        }
-        return game.phases[phase];
+        }      
+        return game.phases[phase].name||game.phases[phase];
     }    
 );

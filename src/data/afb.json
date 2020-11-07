@@ -1,0 +1,298 @@
+{
+    "custom": {
+        "view": "AfbView",        
+        "label": "AfB",
+        "image": "afb",
+        "airstrikes": {
+            "germany": {
+                "1": 2,"2": 2,"3": 2,"4": 2,"5": 2,"6": 2,"7": 1,"8": 1,"9": 1,"10": 1
+            },
+            "ussr": {
+                "1": 0,"2": 0,"3": 0,"4": 0,"5": 1,"6": 1,"7": 1,"8": 1,"9": 1,"10": 1
+            }
+        },
+        "withdrawal": {
+            "1": 0,"2": 0,"3": 0,"4": 0,"5": 0,"6": 2,"7": 4,"8": 6,"9": 6,"10": 6
+        }
+	},
+
+    "players": [        
+        "germany",
+        "ussr"        
+    ],
+    "turns": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",        
+        "8",
+        "9",
+        "10"
+    ],
+    "phases": {
+        "germany": [
+            "Reinforcements",
+            "Movement & Air Strikes",
+            "Combat",
+            "Exploitation & Air Strikes",
+            "Supply",
+            "DG Removal"
+        ],
+        "ussr": [
+            "Reinforcements",
+            "Movement & Air Strikes",
+            "Combat",
+            "Exploitation",
+            "Supply",
+            "DG Removal"
+		]
+	},
+    "terrains": [
+        {
+            "name": "Open",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            }
+        },
+        {
+            "name": "Village",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "shift","value": -1},
+                "defendmod": {"type": "","value": 0}
+            }
+        },
+        {
+            "name": "City",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "drm","value": 1}
+            },
+            "combat": {
+                "attackmod": {"type": "shift","value": -2},
+                "defendmod": {"type": "","value": 0}
+            }
+        },
+        {
+            "name": "Lt Woods",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "shift","value": -1}
+            }
+        },
+        {
+            "name": "Hvy Woods",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "drm","value": 1}
+            },
+            "combat": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "shift","value": -2}
+            }
+        },
+        {
+            "name": "Swamp",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "shift","value": -2},
+                "defendmod": {"type": "","value": 0}
+            }
+        },
+        {
+            "name": "Minor River",
+            "type": "intervening",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "mult","value": 0.5},
+                "defendmod": {"type": "","value": 0}
+            }
+        },
+        {
+            "name": "Major River",
+            "type": "intervening",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "mult","value": 0.5},
+                "defendmod": {"type": "","value": 0}
+            }
+        }
+    ],
+    "combatTable": {
+        "dice": {
+            "number": 2,
+            "base": "d",
+            "sides": 6
+        },
+        "table": [
+            {
+                "odds": -3,
+                "results": [
+                    {"lo": 2,"hi": 4,"result": "A3"},
+                    {"lo": 5,"hi": 6,"result": "A2"},
+                    {"lo": 7,"hi": 10,"result": "A1D1"},
+                    {"lo": 7,"hi": 8,"result": "A1"},
+                    {"lo": 11,"hi": 11,"result": "D1r1"},
+                    {"lo": 12,"hi": 12,"result": "D2r2"}
+                ]
+            },
+            {
+                "odds": -2,
+                "results": [                    
+                    {"lo": 2,"hi": 2,"result": "A3"},
+                    {"lo": 3,"hi": 5,"result": "A2"},
+                    {"lo": 6,"hi": 9,"result": "A1D1"},                    
+                    {"lo": 10,"hi": 11,"result": "D2r1"},
+                    {"lo": 12,"hi": 12,"result": "D3r2"}
+                ]
+            },
+            {
+                "odds": 1,
+                "results": [
+                    {"lo": 2,"hi": 2,"result": "A3"},
+                    {"lo": 3,"hi": 3,"result": "A2"},
+                    {"lo": 4,"hi": 4,"result": "A2D1"},
+                    {"lo": 5,"hi": 7,"result": "A1D1"},                    
+                    {"lo": 8,"hi": 8,"result": "D1r1"},
+                    {"lo": 9,"hi": 9,"result": "D2r1"},
+                    {"lo": 10,"hi": 10,"result": "D2r2"},
+                    {"lo": 11,"hi": 12,"result": "D3r2"}
+                ]
+            },
+            {
+                "odds": 2,
+                "results": [                    
+                    {"lo": 2,"hi": 2,"result": "A3D1"},                    
+                    {"lo": 3,"hi": 3,"result": "A2D1"},
+                    {"lo": 4,"hi": 5,"result": "A1D1"},                    
+                    {"lo": 6,"hi": 7,"result": "D1r1"},
+                    {"lo": 8,"hi": 8,"result": "D2r1"},
+                    {"lo": 9,"hi": 9,"result": "D2r2"},
+                    {"lo": 10,"hi": 11,"result": "D3r2"},
+                    {"lo": 12,"hi": 12,"result": "D4r3"}
+                ]
+            },
+            {
+                "odds": 3,
+                "results": [                                       
+                    {"lo": 2,"hi": 2,"result": "A2D1"},
+                    {"lo": 3,"hi": 4,"result": "A1D1"},                    
+                    {"lo": 5,"hi": 6,"result": "D1r1"},                    
+                    {"lo": 7,"hi": 8,"result": "D2r2"},
+                    {"lo": 9,"hi": 9,"result": "D3r2"},
+                    {"lo": 10,"hi": 10,"result": "D3r3"},
+                    {"lo": 11,"hi": 12,"result": "D4r3"}
+                ]
+            },
+            {
+                "odds": 4,
+                "results": [
+                    {"lo": 2,"hi": 3,"result": "A1D1"},                    
+                    {"lo": 4,"hi": 5,"result": "D1r1"},                    
+                    {"lo": 6,"hi": 7,"result": "D2r2"},
+                    {"lo": 8,"hi": 8,"result": "D3r2"},
+                    {"lo": 9,"hi": 10,"result": "D3r3"},
+                    {"lo": 11,"hi": 11,"result": "D4r3"},
+                    {"lo": 12,"hi": 12,"result": "D4r4"}
+                ]
+            },
+            {
+                "odds": 5,
+                "results": [
+                    {"lo": 2,"hi": 2,"result": "A1D1"},                    
+                    {"lo": 3,"hi": 4,"result": "D1r1"},                    
+                    {"lo": 5,"hi": 6,"result": "D2r2"},                    
+                    {"lo": 7,"hi": 8,"result": "D3r3"},
+                    {"lo": 9,"hi": 9,"result": "D3r4"},
+                    {"lo": 10,"hi": 11,"result": "D4r5"},
+                    {"lo": 12,"hi": 12,"result": "D4r6"}
+                ]
+            },
+            {
+                "odds": 6,
+                "results": [
+                    {"lo": 2,"hi": 2,"result": "A1D1"},                    
+                    {"lo": 3,"hi": 4,"result": "D2r2"},                    
+                    {"lo": 5,"hi": 6,"result": "D3r3"},
+                    {"lo": 7,"hi": 8,"result": "D3r4"},
+                    {"lo": 9,"hi": 9,"result": "D4r5"},
+                    {"lo": 10,"hi": 11,"result": "D4r6"},
+                    {"lo": 12,"hi": 12,"result": "D5r6"}
+                ]
+            }
+        ],
+        "modifiers": [
+            {"name": "OOS","type": "mult","value": 0.5, "applies":"both","repeat":1},
+            {"name": "DG","type": "mult","value": 0.5, "applies":"both","repeat":1}
+        ]
+    },
+    "barrageTable": {
+        "dice": {
+            "number": 1,
+            "base": "d",
+            "sides": 6
+        },
+        "table": [
+            {
+                "strength": "1",
+                "results": [
+                    {"lo": 1,"hi": 1,"result": "DG"},
+                    {"lo": 2,"hi": 6,"result": "NE"}
+                ]
+            },
+            {
+                "strength": "2",
+                "results": [
+                    {"lo": 1,"hi": 2,"result": "DG"},
+                    {"lo": 3,"hi": 6,"result": "NE"}
+                ]
+            },
+            {
+                "strength": "3",
+                "results": [                    
+                    {"lo": 1,"hi": 3,"result": "DG"},
+                    {"lo": 4,"hi": 6,"result": "NE"}
+                ]
+            },
+            {
+                "strength": "4",
+                "results": [
+                    {"lo": 1,"hi": 4,"result": "DG"},
+                    {"lo": 5,"hi": 6,"result": "NE"}
+                ]
+            }
+
+        ],
+        "modifiers": []        
+    }
+}

@@ -43,14 +43,24 @@ module.exports = {
 
         return odds == -1 ? 1 : odds;
     },
-    resolve(odds,mods,die1,die2,rules) {        
+    resolve(odds,mods,terrain,between,die1,die2,rules) {        
         let table = Table(rules.combatTable);
         let attmods = modifiers(rules.combatTable, mods, true);
-        let defmods = modifiers(rules.combatTable, mods, false);
+        let defmods = modifiers(rules.combatTable, mods, false);        
 
-        let drm = Modifier.modifyDRM(attmods) - Modifier.modifyDRM(defmods);
+        terrain = rules.terrains.find((t) => t.name == terrain) || {combat: {}};
+        between = rules.terrains.find((t) => t.name == between) || {combat: {}};
+
+        let drm = (Modifier.modifyDRM(attmods) - Modifier.modifyDRM(defmods)) + (
+            Modifier.modifyDRM([Modifier.modifier(terrain.combat.attackmod,1)]) -             
+            Modifier.modifyDRM([Modifier.modifier(terrain.combat.defendmod,1)])
+
+        );
         let dice = table.diceValue(die1, die2, drm);
-        let shift = Modifier.modifySHIFT(attmods) - Modifier.modifySHIFT(defmods);
+        let shift = (Modifier.modifySHIFT(attmods) - Modifier.modifySHIFT(defmods)) + (
+            Modifier.modifySHIFT([Modifier.modifier(terrain.combat.attackmod,1)]) - 
+            Modifier.modifySHIFT([Modifier.modifier(terrain.combat.defendmod,1)])
+        );
 
         return table.result(odds, shift, dice);
     }

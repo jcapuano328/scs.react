@@ -1,0 +1,404 @@
+{
+    "custom": {
+        "view": "BotbView",        
+        "label": "BotB",
+        "image": "botb",
+        "commando": [
+            { "low": 1, "high": 2, "result": [
+                {"low": 1, "high": 1, "result": "ELIM"},
+                {"low": 2, "high": 6, "result": "N.E."}
+            ]},
+            { "low": 3, "high": 3, "result": [
+                {"low": 1, "high": 2, "result": "ELIM"},
+                {"low": 3, "high": 6, "result": "N.E."}
+            ]},
+            { "low": 4, "high": 4, "result": [
+                {"low": 1, "high": 3, "result": "ELIM"},
+                {"low": 4, "high": 6, "result": "N.E."}
+            ]},
+            { "low": 5, "high": 5, "result": [
+                {"low": 1, "high": 4, "result": "ELIM"},
+                {"low": 5, "high": 6, "result": "N.E."}
+            ]},
+            { "low": 6, "high": 36, "result": [
+                {"low": 1, "high": 5, "result": "ELIM"},
+                {"low": 6, "high": 6, "result": "N.E."}
+            ]}
+        ],
+        "demolition": {
+            "1": [
+                {"low": 1, "high": 2, "result": "ELIM"},
+                {"low": 3, "high": 6, "result": "N.E."}
+            ],
+            "2": [
+                {"low": 1, "high": 3, "result": "ELIM"},
+                {"low": 4, "high": 6, "result": "N.E."}
+            ],
+            "3": [
+                {"low": 1, "high": 4, "result": "ELIM"},
+                {"low": 5, "high": 6, "result": "N.E."}
+            ]
+        },
+        "blitzattack": [
+            {
+                "odds": 2,
+                "results": [
+                    {"low": -12,"high": -1,"result": "Blitz3"},
+                    {"low": 0,"high": 1,"result": "Blitz2"},
+                    {"low": 2,"high": 3,"result": "Blitz1"},
+                    {"low": 4,"high": 4,"result": "ENG"},
+                    {"low": 5,"high": 6,"result": "AB1/DA1"},
+                    {"low": 7,"high": 12,"result": "AB2/DA1"}
+                ]
+            },
+            {
+                "odds": 3,
+                "results": [
+                    {"low": -12,"high": 0,"result": "Blitz3"},
+                    {"low": 1,"high": 2,"result": "Blitz2"},
+                    {"low": 3,"high": 4,"result": "Blitz1"},
+                    {"low": 5,"high": 5,"result": "ENG"},
+                    {"low": 6,"high": 7,"result": "AB1/DA1"},
+                    {"low": 8,"high": 12,"result": "AB2/DA1"}
+                ]
+            },
+            {
+                "odds": 4,
+                "results": [
+                    {"low": -12,"high": 1,"result": "Blitz3"},
+                    {"low": 2,"high": 3,"result": "Blitz2"},
+                    {"low": 4,"high": 4,"result": "Blitz1"},
+                    {"low": 5,"high": 5,"result": "Contact"},
+                    {"low": 6,"high": 6,"result": "ENG"},
+                    {"low": 7,"high": 12,"result": "AB1/DA1"}
+                ]
+            }
+        ]
+	},
+
+    "players": [                
+        "germany",
+        "allies-west"
+    ],
+    "turns": [
+        "Dec 16 AM",
+        "Dec 16 PM",
+        "Dec 17 AM",
+        "Dec 17 PM",
+        "Dec 18 AM",
+        "Dec 18 PM",
+        "Dec 19 AM",
+        "Dec 19 PM",
+        "Dec 20 AM",
+        "Dec 20 PM",
+        "Dec 21 AM",
+        "Dec 21 PM",
+        "Dec 22 AM",
+        "Dec 22 PM",
+        "Dec 23 AM",
+        "Dec 23 PM",
+        "Dec 24 AM",
+        "Dec 24 PM",
+        "Dec 25 AM",
+        "Dec 25 PM",
+        "Dec 26 AM",
+        "Dec 26 PM",
+        "Dec 27 AM",
+        "Dec 27 PM",
+        "Dec 28 AM",
+        "Dec 28 PM",
+        "Dec 29 AM",
+        "Dec 29 PM",
+        "Dec 30 AM",
+        "Dec 30 PM",
+        "Dec 31 AM",
+        "Dec 31 PM",
+        "Jan 1 AM",
+        "Jan 1 PM",
+        "Jan 2 AM",
+        "Jan 2 PM"
+    ],
+    "phases": {
+        "germany": [
+            "Allied Support",
+            "Supply and Fort",
+            "Reinforcement",
+			"Movement",
+			"Combat",
+			"Engineer"
+        ],
+        "allies-west": [
+            "Supply and Fort",
+            "Reinforcement",
+			"Movement",
+			"Combat",
+			"Engineer",
+			"Time Record"
+		]        
+    },
+    "terrains": [
+        {
+            "name": "Clear",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            }
+        },
+        {
+            "name": "Dense Woods",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "mult","value": 2}
+            }
+        },
+        {
+            "name": "Rough",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "mult","value": 2}
+            }
+        },
+        {
+            "name": "Town",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "mult","value": 2}
+            }
+        },
+        {
+            "name": "Fortified Town",
+            "type": "internal",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "drm","value": 1},
+                "defendmod": {"type": "mult","value": 2}
+            }
+        },
+        {
+            "name": "River",
+            "type": "intervening",
+            "barrage": {
+                "attackmod": {"type": "","value": 0},
+                "defendmod": {"type": "","value": 0}
+            },
+            "combat": {
+                "attackmod": {"type": "mult","value": 0.5},
+                "defendmod": {"type": "","value": 0}
+            }
+        }
+    ],
+    "combatTable": {
+        "dice": {
+            "number": 1,
+            "base": "d",
+            "sides": 6
+        },
+        "table": [
+            {
+                "odds": -7,
+                "results": [
+                    {"lo": -12,"hi": 3,"result": "A Elim / DA1"},
+                    {"lo": 4,"hi": 6,"result": "A Elim / DA2"},
+                    {"lo": 7,"hi": 12,"result": "A Elim / DA3"}
+                ]
+            },
+            {
+                "odds": -6,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "AB1 / DA1"},
+                    {"lo": 0,"hi": 1,"result": "AB2 / DA1"},
+                    {"lo": 2,"hi": 2,"result": "AB3 / DA2"},
+                    {"lo": 3,"hi": 4,"result": "A Elim / DA1"},
+                    {"lo": 5,"hi": 7,"result": "A Elim / DA2"},
+                    {"lo": 8, "hi": 12,"result": "A Elim / DA3"}
+                ]
+            },
+            {
+                "odds": -5,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "ENG"},
+                    {"lo": 0,"hi": 0,"result": "AB1 / DA1"},
+                    {"lo": 1,"hi": 2,"result": "AB2 / DA1"},
+                    {"lo": 3,"hi": 3,"result": "AB3 / DA2"},
+                    {"lo": 4,"hi": 5,"result": "A Elim / DA1"},
+                    {"lo": 6,"hi": 12,"result": "A Elim / DA2"}
+                ]
+            },
+            {
+                "odds": -4,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "Contact"},
+                    {"lo": 0,"hi": 0,"result": "ENG"},
+                    {"lo": 1,"hi": 1,"result": "AB1 / DA1"},
+                    {"lo": 2,"hi": 3,"result": "AB2 / DA1"},
+                    {"lo": 4,"hi": 4,"result": "AB3 / DA2"},
+                    {"lo": 5,"hi": 6,"result": "A Elim / DA1"},
+                    {"lo": 7,"hi": 12,"result": "A Elim / DA2"}
+                ]
+            },
+            {
+                "odds": -3,
+                "results": [
+                    {"lo": -12,"hi": 0,"result": "Contact"},
+                    {"lo": 1,"hi": 1,"result": "ENG"},
+                    {"lo": 2,"hi": 2,"result": "AB1 / DA1"},
+                    {"lo": 3,"hi": 4,"result": "AB2 / DA1"},
+                    {"lo": 5,"hi": 5,"result": "AB3 / DA2"},
+                    {"lo": 6,"hi": 7,"result": "A Elim / DA1"},
+                    {"lo": 8,"hi": 12,"result": "A Elim / DA2"}
+                ]
+            },
+            {
+                "odds": -2,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "DB2 / AA1"},
+                    {"lo": 0,"hi": 1,"result": "Contact"},
+                    {"lo": 2,"hi": 2,"result": "ENG"},
+                    {"lo": 3,"hi": 3,"result": "AB1 / DA1"},
+                    {"lo": 4,"hi": 5,"result": "AB2 / DA1"},
+                    {"lo": 6,"hi": 6,"result": "AB3 / DA2"},                    
+                    {"lo": 7,"hi": 12,"result": "A Elim / DA1"}
+                ]
+            },
+            {
+                "odds": 1,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "DB2 / AA1"},
+                    {"lo": 0,"hi": 0,"result": "Exc"},
+                    {"lo": 1,"hi": 2,"result": "Contact"},
+                    {"lo": 3,"hi": 4,"result": "ENG"},
+                    {"lo": 5,"hi": 5,"result": "AB1 / DA1"},
+                    {"lo": 6,"hi": 6,"result": "AB2 / DA1"},
+                    {"lo": 7,"hi": 7,"result": "AB3 / DA2"},                    
+                    {"lo": 8,"hi": 12,"result": "A Elim / DA1"}
+                ]
+            },
+            {
+                "odds": 2,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "DB4 / AA3"},                    
+                    {"lo": 0,"hi": 0,"result": "DB3 / AA2"},
+                    {"lo": 1,"hi": 1,"result": "DB2 / AA1"},
+                    {"lo": 2,"hi": 2,"result": "Exc"},
+                    {"lo": 3,"hi": 3,"result": "Contact"},
+                    {"lo": 4,"hi": 5,"result": "ENG"},
+                    {"lo": 6,"hi": 6,"result": "AB1 / DA1"},
+                    {"lo": 7,"hi": 7,"result": "AB2 / DA1"},
+                    {"lo": 8,"hi": 12,"result": "AB3 / DA2"}
+                ]
+            },
+            {
+                "odds": 3,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "DB4 / AA4"},
+                    {"lo": 0,"hi": 0,"result": "DB4 / AA3"},
+                    {"lo": 1,"hi": 1,"result": "DB3 / AA2"},
+                    {"lo": 2,"hi": 2,"result": "DB2 / AA1"},
+                    {"lo": 3,"hi": 3,"result": "Exc"},
+                    {"lo": 4,"hi": 4,"result": "Contact"},
+                    {"lo": 5,"hi": 6,"result": "ENG"},
+                    {"lo": 7,"hi": 7,"result": "AB1 / DA1"},
+                    {"lo": 8,"hi": 12,"result": "AB2 / DA1"}
+                ]
+            },
+            {
+                "odds": 4,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "D Elim / AA1"},
+                    {"lo": 0,"hi": 0,"result": "DB4 / AA4"},
+                    {"lo": 1,"hi": 1,"result": "DB4 / AA3"},
+                    {"lo": 2,"hi": 2,"result": "DB3 / AA2"},
+                    {"lo": 3,"hi": 3,"result": "DB2 / AA1"},
+                    {"lo": 4,"hi": 4,"result": "Exc"},
+                    {"lo": 5,"hi": 5,"result": "Contact"},
+                    {"lo": 6,"hi": 7,"result": "ENG"},
+                    {"lo": 8,"hi": 12,"result": "AB1 / DA1"}
+                ]
+            },
+            {
+                "odds": 5,
+                "results": [
+                    {"lo": -12,"hi": 0,"result": "D Elim / AA1"},
+                    {"lo": 1,"hi": 1,"result": "DB4 / AA4"},
+                    {"lo": 2,"hi": 2,"result": "DB4 / AA3"},
+                    {"lo": 3,"hi": 3,"result": "DB3 / AA2"},
+                    {"lo": 4,"hi": 4,"result": "DB2 / AA1"},
+                    {"lo": 5,"hi": 5,"result": "Exc"},
+                    {"lo": 6,"hi": 6,"result": "Contact"},
+                    {"lo": 7,"hi": 12,"result": "ENG"}
+                ]
+            },
+            {
+                "odds": 6,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "D Elim / AA2"},
+                    {"lo": 0,"hi": 1,"result": "D Elim / AA1"},
+                    {"lo": 2,"hi": 2,"result": "DB4 / AA4"},
+                    {"lo": 3,"hi": 3,"result": "DB4 / AA3"},
+                    {"lo": 4,"hi": 4,"result": "DB3 / AA2"},
+                    {"lo": 5,"hi": 5,"result": "DB2 / AA1"},
+                    {"lo": 6,"hi": 6,"result": "Exc"},
+                    {"lo": 7,"hi": 7,"result": "Contact"},
+                    {"lo": 8,"hi": 12,"result": "ENG"}
+                ]
+            },
+            {
+                "odds": 7,
+                "results": [
+                    {"lo": -12,"hi": 0,"result": "D Elim / AA2"},
+                    {"lo": 1,"hi": 2,"result": "D Elim / AA1"},
+                    {"lo": 3,"hi": 3,"result": "DB4 / AA4"},
+                    {"lo": 4,"hi": 4,"result": "DB4 / AA3"},
+                    {"lo": 5,"hi": 5,"result": "DB3 / AA2"},
+                    {"lo": 6,"hi": 6,"result": "DB2 / AA1"},
+                    {"lo": 7,"hi": 7,"result": "Exc"},
+                    {"lo": 8,"hi": 12,"result": "Contact"}
+                ]
+            },
+            {
+                "odds": 8,
+                "results": [
+                    {"lo": -12,"hi": -1,"result": "D Elim / AA3"},
+                    {"lo": 0,"hi": 1,"result": "D Elim / AA2"},
+                    {"lo": 2,"hi": 3,"result": "D Elim / AA1"},
+                    {"lo": 4,"hi": 4,"result": "DB4 / AA4"},
+                    {"lo": 5,"hi": 5,"result": "DB4 / AA3"},
+                    {"lo": 6,"hi": 6,"result": "DB3 / AA2"},
+                    {"lo": 7,"hi": 7,"result": "DB2 / AA1"},
+                    {"lo": 8,"hi": 12,"result": "Exc"}
+                ]
+            }
+        ],
+        "modifiers": [
+            {"name": "German Surprise","type": "drm","value": -1, "applies":"attack", "repeat":1},
+            {"name": "Artillery Concentration","type": "drm","value": -1, "applies":"attack"},
+            {"name": "Air Support","type": "drm","value": -1, "applies":"attack"},
+            {"name": "Allied Air Defense","type": "drm","value": -1, "applies":"defend"},
+            {"name": "Fort","type": "drm","value": -1, "applies":"defend", "repeat":1},
+            {"name": "Liege Fort","type": "drm","value": -2, "applies":"defend", "repeat":1}
+        ]
+    }
+}

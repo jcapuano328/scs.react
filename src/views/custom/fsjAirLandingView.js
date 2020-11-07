@@ -86,7 +86,7 @@ let FsjAirLandingView = React.createClass({
                         <View style={{flex:2, justifyContent: 'flex-start'}}>
                             <Text style={{fontSize: Style.Font.mediumlarge(), backgroundColor: 'silver', textAlign: 'center'}}>{'Results'}</Text>
                             {table.map((x,i) => 
-                                <View key={i} style={{flexDirection: 'row', justifyContent: 'flex-start', paddingTop:5}}>
+                                <View key={i} style={{flexDirection: 'row', justifyContent: 'flex-start', paddingTop:5}}>                                    
                                     <View style={{flex:4, alignItems:'flex-start',justifyContent:'flex-start'}}>
                                         <Text style={{fontSize: Style.Font.mediumlarge(), fontWeight: 'bold', textAlign: 'left'}}>{x.result}</Text>
                                     </View>
@@ -95,16 +95,13 @@ let FsjAirLandingView = React.createClass({
                                     </View>
                                     <View style={{flex:1, alignItems:'center',justifyContent:'center'}}>
                                         <Text style={{fontSize: Style.Font.mediumlarge(), fontWeight: 'bold', textAlign: 'center'}}>{x.high}</Text>
-                                    </View>
+                                    </View>                                    
                                 </View>
                             )}
                         </View>
                 </View>
             </View>
         );
-    },
-    nationalities() {        
-        return Object.keys(Tables);
     }
 });
 

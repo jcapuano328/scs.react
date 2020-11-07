@@ -2,11 +2,11 @@ import React from 'react';
 import { View } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import {Style} from 'react-native-nub';
-import TmeAirSupportView from './tmeAirSupportView';
-import TmeAirDropView from './tmeAirDropView';
-import TmeInvasionView from './tmeInvasionView';
+import RostovWeatherView from './rostovWeatherView';
+import RostovInitiativeView from './rostovInitiativeView';
+import RostovReconstructionView from './rostovReconstructionView';
 
-var TmeView = React.createClass({
+var RostovView = React.createClass({
     getInitialState() {
         return {
             initialPage: 0
@@ -20,13 +20,13 @@ var TmeView = React.createClass({
                     tabBarTextStyle={{fontSize: Style.Font.large()}}
                     initialPage={this.state.initialPage}
                 >
-                    <TmeAirSupportView battle={this.props.battle} tabLabel="Air Support" />
-                    <TmeAirDropView battle={this.props.battle} tabLabel="Air Drop" />
-                    <TmeInvasionView battle={this.props.battle} tabLabel="Invasion" />
+                    <RostovWeatherView battle={this.props.battle} tabLabel="Weather" />
+                    <RostovInitiativeView battle={this.props.battle} tabLabel="Initiative" />
+                    <RostovReconstructionView battle={this.props.battle} tabLabel="Reconstruction" />                    
                 </ScrollableTabView>
             </View>
         );
     }
 });
 
-module.exports = TmeView;
+module.exports = RostovView;

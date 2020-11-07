@@ -9,6 +9,10 @@ import CombatView from './combatView';
 import VictoryView from './victoryView';
 import FsjView from './custom/fsjView';
 import TmeView from './custom/tmeView';
+import RostovView from './custom/rostovView';
+import DopView from './custom/dopView';
+import BotbView from './custom/botbView';
+import AfbView from './custom/afbView';
 import getGame from '../selectors/game';
 
 var BattleView = React.createClass({
@@ -49,7 +53,20 @@ var BattleView = React.createClass({
         case 'TmeView':
             TagName = TmeView;
              break;
-      }
+        case 'RostovView':
+            TagName = RostovView;
+             break;
+        case 'DopView':
+            TagName = DopView;
+            break;
+        case 'BotbView':
+            TagName = BotbView;
+            break;
+        case 'AfbView':
+            TagName = AfbView;
+            break;
+    
+        }
       return (
         <TagName battle={this.props.battle} tabLabel={custom.label||'Custom'} />
       );      

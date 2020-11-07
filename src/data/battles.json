@@ -82,5 +82,26 @@
 	    "desc": "The Battle for the Golan Heights, October 1973",
         "image": "heightsofcourage",
 	    "sort": 16	    
+	},
+	{
+	    "id": 20,
+	    "name": "Autumn for Barbarossa",
+	    "desc": "",
+        "image": "afb",
+	    "sort": 20
+	},
+	{
+	    "id": 21,
+	    "name": "Rostov '41",
+	    "desc": "Race to the Don",
+        "image": "rostov41",
+	    "sort": 21	    
+	},
+	{
+	    "id": 99,
+	    "name": "The Battle of the Bulge",
+	    "desc": "AH '81",
+        "image": "botb",
+	    "sort": 99
 	}
 ]

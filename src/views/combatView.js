@@ -53,10 +53,16 @@ let CombatView = React.createClass({
     onChangeOdds(o) {
         this.resolve(o);
     },
-    onChangeAttackMod(m,v) {
+    onChangeAttackMod(m,v) {        
         let mod = this.state.mods[m.name] || {attack: 0, defend: 0};
         mod.attack = +v;
         this.state.mods[m.name] = mod;
+        this.resolve();
+    },
+    onResetAttackMod(m) {
+        Object.keys(this.state.mods).forEach((k) => {
+            this.state.mods[k].attack = 0;
+        });
         this.resolve();
     },
     onChangeDefendMod(m,v) {
@@ -65,11 +71,10 @@ let CombatView = React.createClass({
         this.state.mods[m.name] = mod;
         this.resolve();
     },
-    onResetMod(m) {
-        let mod = this.state.mods[m.name] || {attack: 0, defend: 0};
-        mod.attack = 0;
-        mod.defend = 0;
-        this.state.mods[m.name] = mod;
+    onResetDefendMod(m) {
+        Object.keys(this.state.mods).forEach((k) => {
+            this.state.mods[k].defend = 0;
+        });
         this.resolve();
     },
     onDiceRoll(d) {
@@ -97,7 +102,7 @@ let CombatView = React.createClass({
         let battle = this.props.battle;
         let rules = {combatTable: this.props.battle.combatTable, terrains: this.props.battle.terrains};        
         this.state.odds = odds || Combat.calculate(+this.state.attack,+this.state.defend,this.getModifiers(),this.state.terrain,this.state.between,rules);
-        this.state.results = Combat.resolve(this.state.odds,this.getModifiers(),this.state.die1,this.state.die2,rules);
+        this.state.results = Combat.resolve(this.state.odds,this.getModifiers(),this.state.terrain,this.state.between,this.state.die1,this.state.die2,rules);
         this.setState(this.state);
     },
     render() {
@@ -134,9 +139,9 @@ let CombatView = React.createClass({
                     </View>
                 </View>
 
-                <View style={{flex: 8, flexDirection: 'row'}}>
-                    <View style={{flex: 3, alignItems: 'center'}}>
-                        <View style={{flex: .4, justifyContent: 'center', alignItems: 'center', flexDirection: 'row'}}>
+                <View style={{flex: 8}}>
+                    <View style={{flex: 3}}>
+                        <View style={{flex: 0.75, justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'row'}}>
                             <View style={{flex: 1, alignItems: 'center', backgroundColor:'silver'}}>
                                 <Text style={{fontSize: Style.Font.large()}}>Attack</Text>
                             </View>
@@ -144,54 +149,59 @@ let CombatView = React.createClass({
                                 <Text style={{fontSize: Style.Font.large()}}>Defend</Text>
                             </View>
                         </View>
-                        <View style={{flex: 2, justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'row'}}>
-                            <View style={{flex: 1}}>
-                                <SpinNumeric fontSize={Style.Font.mediumlarge()} value={this.state.attack} min={1} max={500} onChanged={this.onChangeAttack} />
+                        <View style={{flex: 8, justifyContent: 'flex-start', alignItems: 'flex-start', flexDirection: 'row', alignSelf:'stretch'}}>
+                            <View style={{flex: 1, borderRightWidth: 1}}>
+                                <View style={{flex: 1}}>
+                                    <SpinNumeric fontSize={Style.Font.mediumlarge()} value={this.state.attack} min={1} max={500} onChanged={this.onChangeAttack} />
+                                </View>
+                                <View style={{flex: 4, alignSelf: 'stretch'}}>
+                                    <CombatModifiersView modifiers={b.modifiers.filter((mod) => !mod.applies || mod.applies != "defend").map((mod) => {
+                                            return {
+                                                name: mod.name,
+                                                count: (this.state.mods[mod.name] || {attack: 0}).attack,
+                                                repeat: mod.repeat
+                                            };
+                                        })}
+                                        onChange={this.onChangeAttackMod}
+                                        onReset={this.onResetAttackMod}
+                                    />
+                                </View>
                             </View>
                             <View style={{flex: 1}}>
-                                <SpinNumeric fontSize={Style.Font.mediumlarge()} value={this.state.defend} min={1} max={500} onChanged={this.onChangeDefend} />
+                                <View style={{flex: 1}}>
+                                    <SpinNumeric fontSize={Style.Font.mediumlarge()} value={this.state.defend} min={1} max={500} onChanged={this.onChangeDefend} />
+                                </View>
+                                <View style={{flex: 4, alignSelf: 'stretch'}}>
+                                    <CombatModifiersView modifiers={b.modifiers.filter((mod) => !mod.applies || mod.applies != "attack").map((mod) => {
+                                            return {
+                                                name: mod.name,
+                                                count: (this.state.mods[mod.name] || {defend: 0}).defend, 
+                                                repeat: mod.repeat
+                                            };
+                                        })}
+                                        onChange={this.onChangeDefendMod}
+                                        onReset={this.onResetDefendMod}
+                                    />
+                                </View>
                             </View>
-                        </View>
-                        <View style={{flex: 6.6, alignSelf: 'stretch'}}>
-                            <CombatModifiersView modifiers={b.modifiers.map((mod) => {
-                                    return {
-                                        name: mod.name,
-                                        attcount: (this.state.mods[mod.name] || {attack: 0}).attack,
-                                        defcount: (this.state.mods[mod.name] || {defend: 0}).defend
-                                    };
-                                })}
-                                onChangeAttack={this.onChangeAttackMod}
-                                onChangeDefend={this.onChangeDefendMod}
-                                onReset={this.onResetMod}
-                            />
                         </View>
                     </View>
-                    <View style={{flex: 2, alignItems: 'flex-start'}}>
-                        <View style={{flex: 1, alignSelf: 'stretch'}}>
-                            {/*<RadioButtonGroup title={'Terrain'} direction={'vertical'}
-                                buttons={terrain.map((t) => {return {label:t.name,value:t.name};})}
-                                state={this.state.terrain}
-                                onSelected={this.onChangeTerrain}/>
-                            */}
+                    <View style={{flex: 2, alignItems: 'center', alignSelf: 'stretch', flexDirection: 'row'}}>
+                        <View style={{flex: 1, alignSelf: 'stretch', borderRightWidth: 1}}>
                             <SelectList title={'Terrain'} 
                                 titleonly={true} 
                                 titleFontSize={Style.Font.large()}
                                 itemFontSize={Style.Font.mediumlarge()}
-                                items={terrain/*.filter((t) => t.combat.attackmod.type || t.combat.defendmod.type)*/.map((t) => t.name)} 
+                                items={terrain.filter((t) => !t.type || t.type != "intervening").map((t) => t.name)} 
                                 selected={this.state.terrain} 
                                 onChanged={this.onChangeTerrain}/>
                         </View>
                         <View style={{flex: 1, alignSelf: 'stretch'}}>
-                            {/*<RadioButtonGroup title={'Intervening'} direction={'vertical'}
-                                buttons={terrain.map((t) => {return {label:t.name,value:t.name};})}
-                                state={this.state.between}
-                                onSelected={this.onChangeTerrainBetween}/>
-                            */}
                             <SelectList title={'Intervening'} 
                                 titleonly={true} 
                                 titleFontSize={Style.Font.large()}
                                 itemFontSize={Style.Font.mediumlarge()}
-                                items={terrain/*.filter((t) => t.combat.attackmod.type || t.combat.defendmod.type)*/.map((t) => t.name)} 
+                                items={terrain.filter((t) => !t.type || t.type == "intervening").map((t) => t.name)} 
                                 selected={this.state.between} 
                                 onChanged={this.onChangeTerrainBetween}/>
                         </View>

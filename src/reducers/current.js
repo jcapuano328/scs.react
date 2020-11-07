@@ -6,20 +6,12 @@ const defaultState = {
     turn: 0,
     phase: 0,
     player: 0,
+    initiative: 0,
     victory: {
         "player1": 0,
         "player2": 0
     }
 };
-
-const prevTurn = (t) => {    
-    if (--t < 0) { t = 0; }
-    return t;    
-}
-const nextTurn = (t,m) => {    
-    if (++t >= m) { t = m; }
-    return t;    
-}
 
 module.exports = (state = defaultState, action) => {
     switch (action.type) {
@@ -29,7 +21,8 @@ module.exports = (state = defaultState, action) => {
                 ...state,
                 ...action.payload.current
             };        	
-			s.player = s.player || 0;
+            s.player = s.player || 0;
+            s.initiative = s.initiative || 0;
 			s.victory = s.victory || {"player1": 0, "player2": 0};			
                         
             return s;
@@ -41,65 +34,32 @@ module.exports = (state = defaultState, action) => {
             ...action.value
         };
 
-    case types.PREV_TURN:        
+    case types.SET_TURN:        
         return {
             ...state,
-            turn: prevTurn(state.turn)
+            turn: action.value
+        };
+        
+    case types.SET_PHASE:
+        return {
+            ...state,
+            turn: action.value.turn,
+            player: action.value.player,
+            phase: action.value.phase
+        };
+                
+    case types.SET_PLAYER:
+        return {
+            ...state,
+            player: action.value
         };
 
-    case types.NEXT_TURN:
+    case types.SET_INITIATIVE:
         return {
             ...state,
-            turn: nextTurn(state.turn, action.value)
+            initiative: action.value
         };
-    
-    case types.PREV_PHASE:
-        let phase = state.phase - 1;
-        let player = state.player;
-        let turn = state.turn;
-		if (phase < 0) {
-            if (player == 0) {
-                turn = prevTurn(state.turn);
-                player = 1;
-            } else {
-                player = 0;
-            }
-            let plyr = actions.value.players[player];
-            phase = (action.value.phases[plyr]||action.value.phases).length - 1;
-		}
-        return {
-            ...state,
-            turn: turn,
-            phase: phase,
-            player: player
-        };           
-
-    case types.NEXT_PHASE:
-        phase = state.phase + 1;
-        player = state.player;
-        turn = state.turn;
-		if (phase >= action.value.maxphases) {
-			phase =  0;
-            if (player == 1) {
-                turn = nextTurn(state.turn,action.value.maxturns);
-                player = 0;
-            } else {
-                player = 1;
-            }
-		}
-        return {
-            ...state,
-            turn: turn,
-            phase: phase,
-            player: player
-        };
-
-    case types.NEXT_PLAYER:
-        return {
-            ...state,
-            player: state.player == 0 ? 1 : 0
-        };
-    
+            
     case types.SET_VICTORY:    
         return {
             ...state,
