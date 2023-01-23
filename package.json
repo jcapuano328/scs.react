@@ -26,7 +26,7 @@
     "moment": "^2.14.1",
     "react": "^15.4.1",
     "react-native": "^0.39.2",
-    "react-native-code-push": "^1.17.2-beta",
+    "react-native-code-push": "^7.1.0",
     "react-native-dice": "https://git@github.com/jcapuano328/react-native-dice.git",
     "react-native-nub": "https://git@github.com/jcapuano328/react-native-nub.git",
     "react-native-scrollable-tab-view": "^0.5.3",
